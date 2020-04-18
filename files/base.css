@@ -1,0 +1,14 @@
+@import url('https://fontlibrary.org/face/minecraftia');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.minecraft {
+    font-family: "MinecraftiaRegular", sans-serif;
+}
+
+.title {
+    margin: 20px;
+}
