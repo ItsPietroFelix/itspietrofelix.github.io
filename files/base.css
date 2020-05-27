@@ -9,6 +9,11 @@
     font-family: "MinecraftiaRegular", sans-serif;
 }
 
+.textstuff{
+    font-family: Arial, sans-serif;
+    font-size: 5;
+}
+
 .title {
     margin: 20px;
 }
