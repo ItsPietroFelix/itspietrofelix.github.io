@@ -1,4 +1,5 @@
 @import url('https://fontlibrary.org/face/minecraftia');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 * {
     box-sizing: border-box;
@@ -9,11 +10,18 @@
     font-family: "MinecraftiaRegular", sans-serif;
 }
 
+.title {
+    margin: 20px;
+}
+
 .textstuff{
     font-family: Arial, sans-serif;
     font-size: 5;
 }
 
-.title {
-    margin: 20px;
+.footer{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    vertical-align: bottom;
+    background-image: url('https://i.imgur.com/HBQ9dMP.jpg');
 }
