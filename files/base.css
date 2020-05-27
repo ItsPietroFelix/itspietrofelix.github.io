@@ -7,10 +7,15 @@
 }
 
 footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
     text-align: center;
     font-family: "Roboto", sans-serif;
-    vertical-align: bottom;
-    background-image: url('https://i.imgur.com/HBQ9dMP.jpg');
+    background-color: #1c1c1c;
 }
 
 .minecraft {
