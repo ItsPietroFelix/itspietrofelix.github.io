@@ -6,22 +6,26 @@
     margin: 0;
 }
 
+footer {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    vertical-align: bottom;
+    background-image: url('https://i.imgur.com/HBQ9dMP.jpg');
+}
+
 .minecraft {
     font-family: "MinecraftiaRegular", sans-serif;
+}
+
+.roboto {
+    font-family: "Roboto", sans-serif;
 }
 
 .title {
     margin: 20px;
 }
 
-.textstuff{
+.main-content {
     font-family: Arial, sans-serif;
     font-size: 5;
-}
-
-.footer{
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    vertical-align: bottom;
-    background-image: url('https://i.imgur.com/HBQ9dMP.jpg');
 }
