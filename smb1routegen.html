@@ -1,0 +1,43 @@
+<html>
+<!-- Are you ready for some dumb and bad written code? OH YOU DO? LET'S-A-GO THEN -->
+	<title>SMB1 Route Generator</title>
+	<link rel="shortcut icon" href="./files/favicon.ico" />
+	<!-- CSS shit -->
+	<link rel="stylesheet" type="text/css" href="./files/style.css" />
+	<style>
+	</style>
+	<!-- Oh boy here we go -->
+	<script>
+		<!-- Yay, arrays -->
+		let arrayfpg = ["0", "1"];
+		let onedashtwo = ["-1", "0", "1"];
+		let fourdashtwo = ["0", "1", "2", "2", "3"];
+		let eightdashone = ["-1", "0", "1"];
+		let eightdashtwo = ["0", "1", "2", "3"];
+		let eightdashfour = ["0", "1", "2"];
+		
+		<!-- Functions that does not function well -->
+		function randomgen(){
+			<!-- So many lets... -->
+			let random = Math.floor(Math.random() * arrayfpg.length);
+			let randomtwo = Math.floor(Math.random() * onedashtwo.length);
+			let randomthree = Math.floor(Math.random() * fourdashtwo.length);
+			let randomfour = Math.floor(Math.random() * eightdashone.length);
+			let randomfive = Math.floor(Math.random() * eightdashtwo.length);
+			let randomsix = Math.floor(Math.random() * eightdashfour.length);
+			
+			let oneone = (random, arrayfpg[random]);
+			let fourone = (random, arrayfpg[random]);
+			let eightthree = (random, arrayfpg[random]);
+			
+		}
+	</script>
+	<body>
+		<!-- The stuff that makes the page work in the first place -->
+		<div class="box">
+			<button onclick="randomgen()">Generate</button>
+			<p id="time"></p>
+			<p id="result"></p>
+		</div>
+	</body>
+</html>
