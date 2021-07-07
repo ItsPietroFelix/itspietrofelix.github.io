@@ -1,0 +1,52 @@
+<html>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+    body {
+    	background-color: #23272A
+    }
+    p {
+    	text-shadow: -1.5px 1.5px #4e5a6a;
+    	color: #FFFFFF;
+    	font-family: 'Roboto', sans-serif;
+    }
+    p:hover {
+    	text-shadow: -1.5px 1.5px #4e627e;
+    	color: #bdd9ff
+    }
+    h2, h3 {
+    	color: #99AAB5;
+    	font-family: 'Lato', sans-serif;
+    }
+    a {
+    	color: #ff2200
+    }
+    a:hover {
+    	color: #ff0000
+    }
+  </style>
+    <body>
+      <center>
+        <h2>SMB1 Retiming stuff i use:</h2>
+        <h3><a href="http://tasvideos.org/PlatformFramerates.html">TASVideos.org</a>
+      </center>
+      <p>
+  NES Framerate: <b>60,098813897440515529533511098629 fps</b> = 39375000/655171<br>
+NES Frame: <b>0,01663926349206349206349206349206 seconds</b> = 1 / (39375000/655171)<br>
+NES SMB1 Framerule: <b>0,34942453333333333333333333333333 seconds</b> = (1 / (39375000/655171)) * 21<br>
+<br><br>
+NES PAL Framerate: <b>50,006978908189 fps</b><br>
+NES PAL Frame: <b>0,01999720882631129826003819595966 seconds</b> = 1 / 50,006978908189<br>
+NES PAL SMB1 Framerule:<b> 0,41994138535253726346080211515276 seconds</b> = (1 / 50,006978908189) * 21<br>
+<br><br>
+Switch/NES Classic Framerate: <b>60 fps</b><br>
+Switch/NES Classic Frame: <b>0,0166666666666 seconds</b> = 1/60<br>
+Switch/NES Classic Framerule: <b>0,35 seconds</b> = (1 / 60) * 21<br>
+<br><br>
+GBX Framerate: <b>59,727500569606 fps</b><br>
+GBX Frame:<b> 0,01674270629882807812062674202038 seconds </b>= 1 / 59,727500569606<br>
+GBX Framerule: <b>0,35159683227538964053316158242799 seconds</b> = (1 / 59,727500569606) * 21
+      </p>
+      <a href="https://web.archive.org/web/20200504203420/https://discord.com/branding">Color palette</a>
+    </body>
+</html>
