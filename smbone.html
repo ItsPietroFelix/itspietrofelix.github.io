@@ -1,52 +1,156 @@
 <html>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-    body {
-    	background-color: #23272A
-    }
-    p {
-    	text-shadow: -1.5px 1.5px #4e5a6a;
-    	color: #FFFFFF;
-    	font-family: 'Roboto', sans-serif;
-    }
-    p:hover {
-    	text-shadow: -1.5px 1.5px #4e627e;
-    	color: #bdd9ff
-    }
-    h2, h3 {
-    	color: #99AAB5;
-    	font-family: 'Lato', sans-serif;
-    }
-    a {
-    	color: #ff2200
-    }
-    a:hover {
-    	color: #ff0000
-    }
-  </style>
-    <body>
-      <center>
-        <h2>SMB1 Retiming stuff i use:</h2>
-        <h3><a href="http://tasvideos.org/PlatformFramerates.html">TASVideos.org</a>
-      </center>
-      <p>
-  NES Framerate: <b>60,098813897440515529533511098629 fps</b> = 39375000/655171<br>
-NES Frame: <b>0,01663926349206349206349206349206 seconds</b> = 1 / (39375000/655171)<br>
-NES SMB1 Framerule: <b>0,34942453333333333333333333333333 seconds</b> = (1 / (39375000/655171)) * 21<br>
-<br><br>
-NES PAL Framerate: <b>50,006978908189 fps</b><br>
-NES PAL Frame: <b>0,01999720882631129826003819595966 seconds</b> = 1 / 50,006978908189<br>
-NES PAL SMB1 Framerule:<b> 0,41994138535253726346080211515276 seconds</b> = (1 / 50,006978908189) * 21<br>
-<br><br>
-Switch/NES Classic Framerate: <b>60 fps</b><br>
-Switch/NES Classic Frame: <b>0,0166666666666 seconds</b> = 1/60<br>
-Switch/NES Classic Framerule: <b>0,35 seconds</b> = (1 / 60) * 21<br>
-<br><br>
-GBX Framerate: <b>59,727500569606 fps</b><br>
-GBX Frame:<b> 0,01674270629882807812062674202038 seconds </b>= 1 / 59,727500569606<br>
-GBX Framerule: <b>0,35159683227538964053316158242799 seconds</b> = (1 / 59,727500569606) * 21
-      </p>
-      <a href="https://web.archive.org/web/20200504203420/https://discord.com/branding">Color palette</a>
-    </body>
+	<!-- Awful code made by ItsPietroFelix. Steal it, I	don't care. -->
+	<title>SMB1/SMB2J Resources</title>
+	<link rel="icon" href="./files/favicon.ico">
+	<script>
+		let c = 0;
+		let t;
+		function framerules(){
+		document.getElementById('framerules').innerHTML = "You've been on this page for " + c + " <a style=\"color: #0044ff; cursor: pointer;\" onClick=\"alert('imagine a bus')\">framerules</a>.";
+		c = c + 1;
+		t = setTimeout("framerules()", 0349);
+		}
+	</script>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+		
+		body {
+			cursor: default;
+			
+			background-image: url("./files/smb.png");
+			min-height: 500px; 
+
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			
+			text-shadow: -2px 2px 5px rgba(0, 0, 0, 0.9);
+		}
+			
+		ul { font-size: 120% }
+		
+		.c1 {
+			border: 2px dashed rgba(0, 0, 0, 0.92);
+			width: 80%;
+			border-radius: 20px;
+			margin: 0 auto 30 auto;
+			padding: 15 0;
+			box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
+			background-color: rgba(69, 69, 69, 0.8)
+		}
+		
+		.c2 {
+			border: 2px dotted rgba(0, 0, 0, 0.92);
+			width: 80%;
+			border-radius: 20px;
+			margin: 0 auto 30 auto;
+			padding: 15 0;
+			box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
+			background-color: rgba(0, 13, 89, 0.8)
+		}
+		
+		.lato {font-family: 'Lato', sans-serif; letter-spacing: 0.05em;}
+		
+		.roboto {font-family: 'Roboto', sans-serif}
+		
+		a {
+			color: #7289da;
+			-webkit-transition: color 0.3s ease-in-out;
+			-moz-transition: color 0.3s ease-in-out;
+			-o-transition: color 0.3s ease-in-out;
+			transition: color 0.3s ease-in-out;
+			text-decoration: none;
+		}
+		
+		a:hover {color: #5c70b5}
+		
+		#lgray {color: #99AAB5}
+		
+		#dgray {color: #2c2f33}
+		
+		#blurple {color: #7289da}
+		
+		#white {color: #fff}
+		
+		#framerules {color: rgba(0, 0, 0, 0.5)}
+	</style>
+	<center>
+		<div><b>
+			<p id="framerules" class="roboto">don't mind me, the code is just slow</p>
+		</div></b>
+	</center>
+	<body onLoad="framerules()">
+		<div class="c1"><br>
+			<center>
+				<h1 id="white" class="lato"><font style="cursor: crosshair;" color="#00b7ff" onclick="location.href = './index.html';" title="das me">ItsPietroFelix</font>'s SMB Archive</h1>
+				<h2 id="lgray" class="roboto">Useful websites/files for SMB1/SMB2J speedrunners</h2>
+				<br>
+				<h2 id="blurple" class="lato" title="These emulators are allowed in both of the SMB1 and SMB2J speedrun leaderboards.">Emulators<h2>
+			</center>
+			<ul>
+				<li class="roboto" id="lgray">Nestopia <b>(Windows, MacOS, Linux)</b>: <a href="http://nestopia.sourceforge.net/downloads.html" title="(external link)">Link</a></li>
+				<li class="roboto" id="lgray">Nestopia UE <b>(Windows, Linux)</b>: <a href="http://0ldsk00l.ca/nestopia/" title="(external link)">Link</a></li>
+				<li class="roboto" id="lgray">FCEUX <b>(Windows, MacOS, Linux)</b>: <a href="https://fceux.com/web/download.html" title="(external link)">Link</a></li>
+				<li class="roboto" id="lgray">BizHawk <b>(Windows, Linux)</b>: <a href="https://github.com/TASVideos/BizHawk/releases/" title="(external link)">Link</a></li>
+				<li class="roboto" id="lgray">OpenEMU <b>(MacOS)</b>: <a href="https://github.com/OpenEmu/OpenEmu/releases/" title="(external link)">Link</a></li>
+			</ul><br>
+		</div>
+		<br>
+		<div class="c2"><br>
+			<center>
+				<h2 id="blurple" class="lato" title="Don't tell Nintendo pls">Useful ROMs<h2>
+			</center>
+			<ul>
+				<li class="roboto" id="lgray">Super Mario Bros. <b>(North America)</b>: <a href="./files/rom/Super Mario Bros. (U) (PRG0) [!].nes" title="(direct download)">Link</a></li>
+				<li class="roboto" id="lgray">Super Mario Bros. <b>(Japan)</b>: <a href="./files/rom/Super Mario Bros. (J) (PRG0) [!].fds" title="(direct download)">Link</a></li>
+				<li class="roboto" id="lgray">Super Mario Bros. <b>(Europe)</b>: <a href="./files/rom/Super Mario Bros. (E) [!].nes" title="(direct download)">Link</a></li>
+				<li class="roboto" id="lgray">Super Mario Bros. 2 <b>(Japan)</b>: <a href="./files/rom/Super Mario Bros. 2 (J) (PRG0) [!].fds" title="(direct download)">Link</a></li>
+				<li class="roboto" id="lgray">DISKSYS.ROM BIOS: <a href="./files/rom/DISKSYS.ROM" title="(direct download)">Link</a></li>
+			</ul><br>
+		</div>
+		<br>
+		<div class="c1"><br>
+			<center>
+				<h2 id="blurple" class="lato" title="Mostly used for practice or testing.">Useful Hacks<h2>
+			</center>
+			<ul>
+				<li class="roboto" id="lgray">XPOS hack by <b>jeffXvX</b>: <a href="https://www.speedrun.com/patches/SMB1_XPOS_i7j3g.ips" title="(direct download)">Link</a></li>
+				<li class="roboto" id="lgray">FPG+Framerule by <b>sockfolder</b>: <a href="https://www.speedrun.com/patches/SMB_FPG_FR_24i8y.ips" title="(direct download)">Link</a></li>
+				<li class="roboto" id="lgray">SMB1+SMB2J Practice ROM by <b>pellsson</b>: <a href="https://github.com/pellsson/smb" title="(external link)">Link</a></li>
+				<li class="roboto" id="lgray">SMB1+SMB2J Practice ROM +MWE Levels by <b>threecreepio & pellsson</b>: <a href="https://github.com/threecreepio/smb1-pellsson-mwe/" title="(external link)">Link</a></li>
+				<li class="roboto" id="lgray">SMB1+SMB2J Practice ROM (PAL version) by <b>threecreepio</b>:</b> <a href="https://github.com/threecreepio/pallsson" title="(external link)">Link</a></li>
+				<li class="roboto" id="lgray">SMB1 Gltiched World Picker by <b>threecreepio:</b> <a href="https://github.com/threecreepio/smb-glitchedworlds" title="(external link)">Link</a></li>
+				<li class="roboto" id="lgray">SMB2J Gltiched World Picker by <b>threecreepio</b>: <a href="https://github.com/threecreepio/smb2j-glitchedworlds" title="(external link)">Link</a></li>
+				<li class="roboto" id="lgray">SMB1 No Framerules Hack by <b>BlueLovin</b>: <a href="https://github.com/BlueLovin/SMB1-NoFramerules" title="(external link)">Link</a></li>
+			</ul><br>
+		</div>
+		<br>
+		<div class="c2"><br>
+			<center>
+				<h2 id="blurple" class="lato" title="They... patch... roms.">ROM Patchers</h2>
+			</center>
+			<ul>
+				<li class="roboto" id="lgray"><b>FuSoYa</b>'s Lunar IPS Patcher: <a href="https://fusoya.eludevisibility.org/lips/" title="(external link)">Link</a></li>
+				<li class="roboto" id="lgray"><b>Marc Robledo</b>'s JavaScript Patcher: <a href="https://www.marcrobledo.com/RomPatcher.js/" title="(external link)">Link</a></li>
+				<li class="roboto" id="lgray"><b>threecreepio</b>'s Practi<b>s</b>e ROM Builder: <a href="https://github.com/threecreepio/smb1-practiserom" title="(external link)">Link</a></li>
+			</ul><br>
+		</div>
+		<br>
+		<div class="c1"><br>
+			<center>
+				<h2 id="blurple" class="lato" title="You can either retime with the good ol' frame count, or using the framerule and bowser pattern method.">Retiming Tools</h2>
+			</center>
+			<ul>
+				<li class="roboto" id="lgray"><b>somewes</b>' SMB Bowser Pattern Timer: <a href="https://somewes.com/smb-time/" title="(external link)">Link</a></li>
+				<li class="roboto" id="lgray"><b>threecreepio</b>'s Bowser Frames: <a href="https://3.creep.io/smb1/bowserframes" title="(external link)">Link</a></li>
+				<li class="roboto" id="lgray"><b>VirtualDub</b>: <a href="https://www.virtualdub.org/download.html" title="(external link)">Link</a></li>
+				<li class="roboto" id="lgray"><b>somewes</b>' Frame Counter: <a href="https://somewes.com/frame-count/" title="(external link)">Link</a></li>
+				<li class="roboto" id="lgray"><b>Bismuth</b>'s Frame Count Spreadsheet: <a href="https://docs.google.com/spreadsheets/d/1O9c0ITzt1JRhfwcUFvcQpG_Dh0G9X8xm6hJttVG0-oU/edit#gid=0" title="(external link)">Link</a></li>
+			</ul><br>
+		</div>
+		<center><img src="./files/spin.gif" title="'he protecc, he attacc, but most importantly - he spins.'"></center>
+		<br><br>
+	</body>
 </html>
