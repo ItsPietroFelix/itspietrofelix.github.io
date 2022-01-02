@@ -1,0 +1,50 @@
+<html>
+<!-- Why are you even reading this page's code, this only has like 50 lines wtf -->
+	<title>Simple Character Counter</title>
+	<link rel="icon" href="./files/itspietrofelix.ico">
+	<script>
+		function countit(){
+			var text = document.getElementById('count').value;
+			document.getElementById('result').innerHTML = "Your text is <b>" + text.length + "</b> characters long.";
+			let t;
+			t = setTimeout("countit()", 0001);
+		}
+	</script>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+		body {
+			background-color: #23272A
+		}
+		
+		.white {
+			color: #99AAB5;
+			font-family: 'Roboto', sans-serif
+		}
+		
+		textarea {
+			outline: none !important;
+			resize: none;
+			color: #404EED;
+			border: 3px solid #99AAB5
+		}
+		
+		a, a:visited {
+			color: #99AAB5;
+			-webkit-transition: color 0.3s ease-in-out;
+			-moz-transition: color 0.3s ease-in-out;
+			-o-transition: color 0.3s ease-in-out;
+			transition: color 0.3s ease-in-out;
+			text-decoration: none;
+		}
+		
+		a:hover {color: #404EED}
+	</style>
+	<body onLoad="countit()">
+		<center>
+			<h1 class="white">Simple Character Counter</h1>
+			<h2 class="white">by <a href="./index">ItsPietroFelix</a></h2>
+			<p id="result" class="white">Your text is <b>0</b> characters long.</p>
+			<textarea autofocus name="count" id="count" class="count" cols="125" rows="30" placeholder="Put your string here!">Hello, I'm Felix! How are you today?</textarea>
+		</center>
+	</body>
+</html>
