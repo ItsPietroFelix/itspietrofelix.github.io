@@ -9,7 +9,7 @@
 		let c = 0;
 		let t;
 		function framerules(){
-		document.getElementById('framerules').innerHTML = "Hey! You have been looking this page for " + c + " <a style=\"color: #0044ff; cursor: pointer;\" onClick=\"alert('Imagine a bus...')\">framerules</a>!";
+		document.getElementById('framerules').innerHTML = "You have been looking this page for " + c + " <a style=\"color: #0044ff; cursor: pointer;\" onClick=\"alert('Imagine a bus...')\">framerules</a>!";
 		c = c + 1;
 		t = setTimeout("framerules()", 0349);
 		}
@@ -20,20 +20,15 @@
 		@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 		
 		body {
-			cursor: default;
-			
+			cursor: default;			
 			background-image: url("./files/smb.png");
 			min-height: 500px; 
-
 			background-attachment: fixed;
 			background-position: center;
 			background-repeat: no-repeat;
-			background-size: cover;
-			
+			background-size: cover;			
 			text-shadow: -2px 2px 5px rgba(0, 0, 0, 0.9);
 		}
-			
-		ul { font-size: 120% }
 		
 		.c1 {
 			border: 2px dashed rgba(0, 0, 0, 0.92);
@@ -42,7 +37,7 @@
 			margin: 0 auto 30 auto;
 			padding: 15 0;
 			box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
-			background-color: rgba(69, 69, 69, 0.8)
+			background-color: rgba(35, 39, 42, 0.9)
 		}
 		
 		.c2 {
@@ -52,23 +47,25 @@
 			margin: 0 auto 30 auto;
 			padding: 15 0;
 			box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
-			background-color: rgba(0, 13, 89, 0.8)
+			background-color: rgba(44, 47, 51, 0.8)
 		}
 		
-		.lato {font-family: 'Lato', sans-serif; letter-spacing: 0.05em;}
-		
-		.roboto {font-family: 'Roboto', sans-serif}
-		
 		a {
-			color: #7289da;
+			color: rgba(114, 137, 218, 1);
 			-webkit-transition: color 0.3s ease-in-out;
 			-moz-transition: color 0.3s ease-in-out;
 			-o-transition: color 0.3s ease-in-out;
 			transition: color 0.3s ease-in-out;
 			text-decoration: none;
-		}
+		}		
 		
-		a:hover {color: #5c70b5}
+		ul { font-size: 120% }
+		
+		.lato {font-family: 'Lato', sans-serif; letter-spacing: 0.05em;}
+		
+		.roboto {font-family: 'Roboto', sans-serif}
+		
+		a:hover {color: rgba(78, 93, 148, 1)}
 		
 		#lgray {color: #99AAB5}
 		
@@ -88,7 +85,7 @@
 	<body onLoad="framerules()">
 		<div class="c1"><br>
 			<center>
-				<h1 id="white" class="lato"><font style="cursor: crosshair;" color="#00b7ff" onclick="location.href = './index';" title="das me">ItsPietroFelix</font>'s SMB speedrunning Archive</h1>
+				<h1 id="white" class="lato"><font style="cursor: crosshair;" color="#00b7ff" onclick="location.href = './index';" title="das meeeeee">ItsPietroFelix</font>'s SMB speedrunning Archive</h1>
 				<h2 id="lgray" class="roboto">Useful websites/files for SMB1/SMB2J speedrunners</h2>
 			</center>
 		</div><br>
