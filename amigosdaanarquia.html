@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<title>Gerador de frases do Amigos da Anarquia</title>
+	<link rel="shortcut icon" href="https://images-ext-2.discordapp.net/external/WoV1sukWcSbmzWZjAqNrancfZEUBWwPFoetjgFtAPmw/https/cdn.discordapp.com/icons/911037527048192050/8076b49984326a3935a7ab3ae925e8c0.png" type="image/png">
+	<head>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+			body {
+				background-color: rgba(44, 47, 51)
+			}
+			h2, h4, p, button {
+				font-family: 'Roboto', sans-serif
+			}
+			h2, h4, a {
+				color: rgb(153, 170, 181);
+				text-decoration: none
+			}
+			a:hover {
+				color: rgb(114, 137, 218);
+			}
+			p {
+				color: white
+			}
+			button {
+				background-color: rgb(78, 93, 148);
+				border: 0px
+			}
+			button:hover {
+				background-color: rgb(114, 137, 218);
+				border: 1px white
+			}
+		</style>
+		<script>
+			function testf(){
+			var redesocialstr = ["Reddit", "Facebook", "Twitter", "YouTube", "Instagram", "Snapchat", "Furaffinity", "Speedrun.com", "Newgrounds", "Steam", "Netflix", "TikTok"];
+			var redesocial = redesocialstr[Math.floor(Math.random()*redesocialstr.length)];
+			var usersstr = ["ItsPietroFelix", "LucasLG", "RICARDO", "Oriçado", "LY", "N9", "xoblor", "follower", "TJ", "Apollo", "COERSA", "vmlc1771", "Valentino", "GabsBR", "JR", "kitty", "Turuco", "Dark", "Minevoid", "LB", "Sorbeto", "Tanje", "KILLET0"];
+			var users = usersstr[Math.floor(Math.random()*usersstr.length)];
+			var musicastr = ["UDR 666", "Mamonas Assassinas", "Legião Urbana", "The Caretaker", "Elza Soares", "Leno Brega", "Yung Lixo", "Hino de time de futebol", "Madonna", "Rihanna", "Billie Eilish", "FutParódias", "Lo-Fi", "Dimrain47", "Raul Seixas", "Queen", "The Beatles", "Ultraje a Rigor", "The Ments", "Restart", "MC Poze", "MC Kevin", "MC Bin Laden", "PMM", "Raimundos", "É o Tchan", "Tchakabum", "Melim", "Supercombo", "MC Créu", "MC Brinquedo", "Claudinho e Buchecha", "Ivete Sangalo", "Cláudia Leitte", "Racionais MC's", "Charlie Brown Jr."];
+			var musica = musicastr[Math.floor(Math.random()*musicastr.length)];
+			let jogos = ["Friday Night Funkin", "Minecraft", "Roblox", "GTA", "Super Mario", "Zelda", "Metroid", "Geometry Dash", "Férias Frustradas do Pica-Pau", "Sonic", "Halo", "Gears of War", "Call Of Duty", "Counter Strike", "Mortal Kombat", "Punch-Out", "Street Fighter", "Streets of Rage", "Chrono Trigger", "League of Legends", "Fortnite", "Free Fire", "PUBG", "Pou", "Starfox", "Elden Ring", "Uno", "Xadrez", "Damas", "Truco", "Pula-Pirata", "Jogo da Vida", "Tetris", "Wordle"];
+			var jogo = jogos[Math.floor(Math.random()*jogos.length)];
+			let cring = [`Joga ${jogo}`, `ouve ${musica}`];
+			var cringe = cring[Math.floor(Math.random()*cring.length)];
+			var acoesstr = [`jogando ${jogo}`, "lendo 2B1F", "na punheta", "sendo recolor", "assistindo CP", "ouvindo EATEOT", "roubando memes", "fazendo shitpost", "sem AdBlock no PC", "sendo gado da Safira", "numas altas viadagens", "assistindo pornô scat", "roubando IP dos outros", "sendo cringe em excesso", "vangloriando o Flamengo", `ouvindo ${musica}`, "tomando ratio no twitter", "em chat de live de vtuber", "cometendo erro de português", "comprando viagra na farmácia", "criando conta no furaffinity", "spammando comando do NotSoBot", "editando print pra parecer foda", "FALANDO TUDO COM LETRA MAIÚSCULA", "assistindo série ruim na netflix", "criando conta fake", "mendigando adm em servidor aleatório", "assisitindo vídeos ilegais na dark web", "cometendo 3 pecados capitais ao mesmo tempo", "ficar entrando e saindo do servidor toda hora"];
+			var acoes = acoesstr[Math.floor(Math.random()*acoesstr.length)];
+			var itens = [`${users} foi pego ${acoes} se fudeu kkkkkkkkk`, `${users} tu acha memo que eu não vi tu ${acoes} né? Vou contar pra todo mundo kkk`, `Até onde eu sei não dá pro ${users} ir ${acoes} e sair como se nada tivesse acontecido`, `${users} FOI BANIDO DO ${redesocial} KKKKKKKKKKKKKKKKKKKKKKKK`, `O ${users} ${cringe}? mt cringe sifude`, `Caraio que cheiro de merda viado ata é só o ${users}`, `O ${users} quer te contar um segredo MEIA NOITE`, `fodase ${users}`];
+			var resultado = itens[Math.floor(Math.random()*itens.length)];
+			document.getElementById('caixadetexto').innerHTML = resultado;
+			}
+		</script>
+	</head>
+	<body onLoad="testf()">
+		<h2>Gerador de frases dos Amigos da Anarquia</h2>
+		<b><p id="caixadetexto">Carregando...</p></b>
+		<button onclick="testf()">Clique aqui para gerar outra frase</button>
+		<br>
+		<center><h4>Sitezinho maçante feito pelo <a href="http://itspietrofelix.github.io">@ItsPietroFelix</a></h4></center>
+	</body>
+</html>
