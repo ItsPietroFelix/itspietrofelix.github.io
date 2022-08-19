@@ -18,14 +18,14 @@
 			let c = 0;
 			let t;
 			function framerules(){
-				document.getElementById('framerules').innerHTML = "You have been looking this page for " + c + " <a style=\"color: #0044ff; cursor: pointer;\" onClick=\"alert('Imagine a bus...')\">framerules</a>!";
+				document.getElementById('framerules').innerHTML = "You'vw been looking at this page for " + c + " <a style=\"color: #0044ff; cursor: pointer;\" onClick=\"alert('Imagine a bus...')\">framerules</a>!";
 				c = c + 1;
 				t = setTimeout("framerules()", 0349);
 			}
 			window.addEventListener('keydown', function (e) {
   				if(e.key == '+'){
   					alert('You have unlocked a secret section of this website. Scroll down.');
-   				document.getElementById("hidden").removeAttribute("hidden");
+   					document.getElementById("hideit").removeAttribute("hidden");
  				 }
 			}, false);
 		</script>
@@ -95,7 +95,7 @@
 	</head>
 	<center>
 		<div><b>
-			<p id="framerules" class="roboto">If you see this, either my code or your internet suck</p>
+			<p id="framerules" class="roboto">If you see this, either my code sucks or your internet sucks</p>
 		</div></b>
 	</center>
 	<body onLoad="framerules()">
