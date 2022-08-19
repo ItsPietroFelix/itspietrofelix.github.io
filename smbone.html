@@ -18,10 +18,16 @@
 			let c = 0;
 			let t;
 			function framerules(){
-			document.getElementById('framerules').innerHTML = "You have been looking this page for " + c + " <a style=\"color: #0044ff; cursor: pointer;\" onClick=\"alert('Imagine a bus...')\">framerules</a>!";
-			c = c + 1;
-			t = setTimeout("framerules()", 0349);
+				document.getElementById('framerules').innerHTML = "You have been looking this page for " + c + " <a style=\"color: #0044ff; cursor: pointer;\" onClick=\"alert('Imagine a bus...')\">framerules</a>!";
+				c = c + 1;
+				t = setTimeout("framerules()", 0349);
 			}
+			window.addEventListener('keydown', function (e) {
+  				if(e.key == '+'){
+  					alert('You have unlocked a secret section of this website. Scroll down.');
+   				document.getElementById("hidden").removeAttribute("hidden");
+ 				 }
+			}, false);
 		</script>
 		<!-- WOO! CSS. -->
 		<style>
@@ -128,19 +134,6 @@
 			<br>
 		</div>
 		<br>
-		<div class="c2"><br>
-			<center>
-				<h2 id="blurple" class="lato" title="Don't tell Nintendo pls, not feeling like rotting in prison thanks bye">Useful ROMs<h2>
-			</center>
-			<ul>
-				<li class="roboto" id="lgray">Super Mario Bros. <b>(North America)</b>: <a href="./files/rom/Super Mario Bros. (U) (PRG0) [!].nes" title="(direct download)">Link</a></li>
-				<li class="roboto" id="lgray">Super Mario Bros. <b>(Japan)</b>: <a href="./files/rom/Super Mario Bros. (J) (PRG0) [!].fds" title="(direct download)">Link</a></li>
-				<li class="roboto" id="lgray">Super Mario Bros. <b>(Europe)</b>: <a href="./files/rom/Super Mario Bros. (E) [!].nes" title="(direct download)">Link</a></li>
-				<li class="roboto" id="lgray">Super Mario Bros. 2 <b>(Japan)</b>: <a href="./files/rom/Super Mario Bros. 2 (J) (PRG0) [!].fds" title="(direct download)">Link</a></li>
-				<li class="roboto" id="lgray">DISKSYS.ROM BIOS: <a href="./files/rom/DISKSYS.ROM" title="(direct download)">Link</a></li>
-			</ul><br>
-		</div>
-		<br>
 		<div class="c1"><br>
 			<center>
 				<h2 id="blurple" class="lato" title="Mostly used for practice or testing.">Useful Hacks<h2>
@@ -182,6 +175,17 @@
 			</ul><br>
 		</div>
 		<center><img src="./files/smb/spin.gif" title="'he protecc, he attacc, but most importantly - he spins.'"></center>
-		<br><br>
+		<div class="c2" id="hideit" hidden><br><br><br>
+			<center>
+				<h2 id="blurple" class="lato" title="Don't tell Nintendo pls, not feeling like rotting in prison thanks bye">ROMs (secret):<h2>
+			</center>
+			<ul>
+				<li class="roboto" id="lgray">Super Mario Bros. <b>(North America)</b>: <a href="./files/rom/Super Mario Bros. (U) (PRG0) [!].nes" title="(direct download)">Link</a></li>
+				<li class="roboto" id="lgray">Super Mario Bros. <b>(Japan)</b>: <a href="./files/rom/Super Mario Bros. (J) (PRG0) [!].fds" title="(direct download)">Link</a></li>
+				<li class="roboto" id="lgray">Super Mario Bros. <b>(Europe)</b>: <a href="./files/rom/Super Mario Bros. (E) [!].nes" title="(direct download)">Link</a></li>
+				<li class="roboto" id="lgray">Super Mario Bros. 2 <b>(Japan)</b>: <a href="./files/rom/Super Mario Bros. 2 (J) (PRG0) [!].fds" title="(direct download)">Link</a></li>
+				<li class="roboto" id="lgray">DISKSYS.ROM BIOS: <a href="./files/rom/DISKSYS.ROM" title="(direct download)">Link</a></li>
+			</ul><br>
+		</div>
 	</body>
 </html>
