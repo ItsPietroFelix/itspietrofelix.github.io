@@ -46,3 +46,7 @@ a:hover {color: rgba(78, 93, 148, 1)}
 }
 			
 h1, h4, b {color: white}
+
+.lato {font-family: 'Lato', sans-serif; letter-spacing: 0.05em;}
+		
+.roboto {font-family: 'Roboto', sans-serif}
