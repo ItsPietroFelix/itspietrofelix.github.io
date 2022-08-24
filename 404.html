@@ -1,7 +1,25 @@
 ---
 permalink: /404.html
 ---
-<title>dead end, buster.</title>
-<link rel="stylesheet" href="./files/style.css">
-<h1>This is probably <b>not</b> the page you wanted to be in.</h1>
-<h2>Go to the <a href="./index">home page</a> instead.</h2>
+<htnl>
+  <!-- Why are you reading the source code of a fucking 404 page are you braindead or what? -->
+  <title id="lol2">dead end, buster.</title>
+  <link rel="stylesheet" href="./files/style.css">
+  <script>
+    function generateFunnyMessage(){
+      let textArray = ["whoopsies, that wasn't your website!", "dead end, buster.", "wrong way", "sqrt(163216)", "almost there, jk ur not", "you're not that guy", "insert a funny message here", "you done goofed", "F", "ooh, a gun!", "that hurt", "randomly generated text", "kinda missed the page there"];
+      var randomIndex = Math.floor(Math.random() * textArray.length); 
+      var funnyMessage = textArray[randomIndex];
+      document.getElementById("lol").innerHTML = funnyMessage;
+      document.getElementById("lol2").innerHTML = funnyMessage;
+    }
+  </script>
+  <body onload="generateFunnyMessage()" style="background-color: #99aab5">
+    <center>
+      <h1 id="lol">dead end</h1>
+      <h2>This is probably <b><i>not</i></b> the page you wanted to be in.</h2>
+      <h3>You can go to the <a href="./index">home page</a> instead.</h3>
+      <h5 class="lato"><i>Check if you didn't misspell the URL, or if the page isn't there anymore, in my <a href="https://github.com/ItsPietroFelix/itspietrofelix.github.io">Github</a>!</i></h5>
+    </center>
+  </body>
+</html>
