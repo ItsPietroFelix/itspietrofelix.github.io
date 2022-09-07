@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <title>Fetch-A-Fruit Voiceline Generator</title>
+      <script>
+      // A U D I O
+      	var aahniceswinging = new Audio('./files/faf-sounds/aah/faf-aah-niceswinging');
+        var aahexcellent = new Audio('./files/faf-sounds/aah/faf-aah-excellent');
+        var aahgoodwork = new Audio('./files/faf-sounds/aah/faf-aah-goodwork');
+        var aahthanks = new Audio('./files/faf-sounds/aah/faf-aah-thanks');
+      	var aahpineapples = new Audio('./files/faf-sounds/aah/faf-aah-pineapples');
+      	var aahcoconuts = new Audio('./files/faf-sounds/aah/faf-aah-coconuts');
+		    var aahbananas = new Audio('./files/faf-sounds/aah/faf-aah-bananas');
+        var aahlemons = new Audio('./files/faf-sounds/aah/faf-aah-lemons');
+        var aahlimes = new Audio('./files/faf-sounds/aah/faf-aah-limes');
+        var aahthree = new Audio('./files/faf-sounds/aah/faf-aah-three');
+        var aahfour = new Audio('./files/faf-sounds/aah/faf-aah-four');
+        var aahfive = new Audio('./files/faf-sounds/aah/faf-aah-five');
+        
+        var oohiknewyoucoulddoit = new Audio('./files/faf-sounds/ooh/faf-ooh-iknewyoucoulddoit');
+        var oohthankyou = new Audio('./files/faf-sounds/ooh/faf-ooh-thankyou');
+        var oohgreatjob = new Audio('./files/faf-sounds/ooh/faf-ooh-greatjob');
+        var oohwoohoo = new Audio('./files/faf-sounds/ooh/faf-ooh-woohoo');
+      	var oohpineapples = new Audio('./files/faf-sounds/ooh/faf-ooh-pineapples');
+      	var oohcoconuts = new Audio('./files/faf-sounds/ooh/faf-ooh-coconuts');
+		    var oohbananas = new Audio('./files/faf-sounds/ooh/faf-ooh-bananas');
+        var oohlemons = new Audio('./files/faf-sounds/ooh/faf-ooh-lemons');
+        var oohlimes = new Audio('./files/faf-sounds/ooh/faf-ooh-limes');
+        var oohthree = new Audio('./files/faf-sounds/ooh/faf-ooh-three');
+        var oohfour = new Audio('./files/faf-sounds/ooh/faf-ooh-four');
+        var oohfive = new Audio('./files/faf-sounds/ooh/faf-ooh-five');
+        function audioplay(){
+            var audio = new Audio('https://github.com/ItsPietroFelix/itspietrofelix.github.io/raw/master/files/faf-sounds/misc/faf-bgm.mp3'); //mudar isso
+            audio.loop = true;
+            audio.volume = 0.10;
+            audio.play();
+        }
+        function random(){
+            let fruitA = ["pa", "ap", "le", "li", "co"];
+            let quantityA = ["3", "4", "5"];
+            let monkeA = ["ooh", "aah"];
+            let voicelined = "";
+            let voicelineOohA = ["wo", "gj", "ty", "ik"];
+            let voicelineAahA = ["ns", "ex", "gw", "tx"];
+            var fruitpick = Math.floor(Math.random() * fruitA.length); 
+            var fruit = fruitA[fruitpick];
+            if(fruit == "co") {
+            aahcoconuts.volume = 0.35;
+            aahcoconuts.loop = false;
+           	aahcoconuts.play();
+            }
+            alert(fruit)
+        }
+    </script>
+    <style>
+      @font-face {
+         font-family: 'BB';
+         src: url('https://github.com/ItsPietroFelix/itspietrofelix.github.io/raw/master/files/babebamboo.ttf') format('truetype');
+    
+         font-weight: normal;
+         font-style: normal;
+      }
+
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+    
+      b {
+      	font-family: "Roboto"
+      }
+
+      h1 {
+        color: #d94b4b;
+        text-outline: 1px white;
+        font-family: "Arial";
+        -webkit-text-stroke-width: 0.1px;
+        -webkit-text-stroke-color: white;
+      }
+    
+      body {
+          background-image: url("https://github.com/ItsPietroFelix/itspietrofelix.github.io/blob/master/files/faf-bg.png?raw=true");
+          min-height: 500px; 
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;	
+      }
+    </style>
+  </head>
+  <body onLoad="audioplay()">
+    <h1>Fetch-a-Fruit Voiceline Generator</h1>
+    
+    <b>[AINDA EM BETA]</b>
+    
+    <button onclick="random()">a</button>
+  </body>
+</html>
