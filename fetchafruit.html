@@ -9,7 +9,7 @@
         var aahthanks = new Audio('./files/faf-sounds/aah/faf-aah-thanks');
       	var aahpineapples = new Audio('./files/faf-sounds/aah/faf-aah-pineapples');
       	var aahcoconuts = new Audio('./files/faf-sounds/aah/faf-aah-coconuts');
-		    var aahbananas = new Audio('./files/faf-sounds/aah/faf-aah-bananas');
+	var aahbananas = new Audio('./files/faf-sounds/aah/faf-aah-bananas');
         var aahlemons = new Audio('./files/faf-sounds/aah/faf-aah-lemons');
         var aahlimes = new Audio('./files/faf-sounds/aah/faf-aah-limes');
         var aahthree = new Audio('./files/faf-sounds/aah/faf-aah-three');
@@ -22,17 +22,17 @@
         var oohwoohoo = new Audio('./files/faf-sounds/ooh/faf-ooh-woohoo');
       	var oohpineapples = new Audio('./files/faf-sounds/ooh/faf-ooh-pineapples');
       	var oohcoconuts = new Audio('./files/faf-sounds/ooh/faf-ooh-coconuts');
-		    var oohbananas = new Audio('./files/faf-sounds/ooh/faf-ooh-bananas');
+	var oohbananas = new Audio('./files/faf-sounds/ooh/faf-ooh-bananas');
         var oohlemons = new Audio('./files/faf-sounds/ooh/faf-ooh-lemons');
         var oohlimes = new Audio('./files/faf-sounds/ooh/faf-ooh-limes');
         var oohthree = new Audio('./files/faf-sounds/ooh/faf-ooh-three');
         var oohfour = new Audio('./files/faf-sounds/ooh/faf-ooh-four');
         var oohfive = new Audio('./files/faf-sounds/ooh/faf-ooh-five');
         function audioplay(){
-            var audio = new Audio('https://github.com/ItsPietroFelix/itspietrofelix.github.io/raw/master/files/faf-sounds/misc/faf-bgm.mp3'); //mudar isso
-            audio.loop = true;
-            audio.volume = 0.10;
-            audio.play();
+            var bgm = new Audio('files/faf-sounds/misc/faf-bgm.mp3'); //mudar isso
+            bgm.loop = true;
+            bgm.volume = 0.10;
+            bgm.play();
         }
         function random(){
             let fruitA = ["pa", "ap", "le", "li", "co"];
@@ -46,7 +46,7 @@
             if(fruit == "co") {
             aahcoconuts.volume = 0.35;
             aahcoconuts.loop = false;
-           	aahcoconuts.play();
+            aahcoconuts.play();
             }
             alert(fruit)
         }
