@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="./files/bedrail.png">
+		<title>shortest string</title>
+		<style>
+			h1, h4, p {
+				font-family: Arial;
+				text-shadow: -1.5px 1.25px 4px black;
+				color: rgb(153, 170, 181)
+			}
+
+			.stuff {
+				position: absolute;
+  				left: 50%;
+  				top: 50%;
+  				-webkit-transform: translate(-50%, -50%);
+  				transform: translate(-50%, -50%);
+			}
+		</style>
+		<script>
+			function generator(){
+
+			var xinput = document.getElementById('xinput').value;
+			var xmin = document.getElementById('xmin').value;
+			var xmax = Number(document.getElementById('xmax').value);
+			var yinput = document.getElementById('yinput').value;
+			var ymin = document.getElementById('ymin').value;
+			var ymax = Number(document.getElementById('ymax').value);
+			var zinput = document.getElementById('zinput').value;
+			var zmin = document.getElementById('zmin').value;
+			var zmax = Number(document.getElementById('zmax').value);
+			var starter = document.getElementById('start').value;
+			var ender = document.getElementById('end').value;
+
+			var counterlol = 0;
+			var text = "";
+
+			if(xmax <= Number(xmin) || ymax <= Number(ymin) || zmax <= Number(zmin)) {
+				return alert('The max value cannot be equal or inferior to the min values.')
+			}
+
+			for (var ii = xmin; ii <= xmax; ii++) {
+				for (var jj = ymin; jj <= ymax; jj++) {
+					for (var kk = zmin; kk <= zmax; kk++) {
+						if(zmin == "") {
+							zinput, zmin, zmax = " ";
+						}
+						counterlol = counterlol + 1;
+						text += starter + xinput + ii + yinput + jj + zinput + kk + ender + "|";
+					}
+				}
+			}
+
+			document.getElementById('result').removeAttribute('hidden');
+			document.getElementById('lel').setAttribute('hidden', 'hidden');
+			document.getElementById('ctc').removeAttribute('hidden');
+			document.getElementById('counter').innerHTML = "Strings generated: <strong>" + counterlol + "</strong>"
+			document.getElementById('result').innerHTML = text;
+			}
+
+			function clipboard() {
+                var range = document.createRange();
+                range.selectNode(document.getElementById("result"));
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                document.execCommand("copy");
+                window.getSelection().removeAllRanges();
+                alert('Copied string to clipboard!')
+            }
+		</script>
+	</head>
+	<body style="background-color: rgb(44, 47, 51)">
+		<div class="stuff">
+			<center>
+				<h1 onclick="location.href = './';">shortest string generator</h1>
+				<h4>generate your string so you can bruteforce stuff lol</h4>
+
+				<select id="xinput">
+					<option value="n">nothing [n]</option>
+					<option value="d">right [d]</option>
+					<option value="a">left [a]</option>
+					<option value="S">left+right [S]</option>
+					<option value="w">jump [w]</option>
+					<option value="e">jump+right [e]</option>
+					<option value="q">jump+left [q]</option>
+					<option value="g">jump+left+right [W]</option>
+				</select>
+
+				<input type="number" id="xmin" placeholder="x min" min="1" max="998">
+				<input type="number" id="xmax" placeholder="x max" min="2" max="999"> <br>
+
+				<select id="yinput">
+					<option value="n">nothing [n]</option>
+					<option value="d">right [d]</option>
+					<option value="a">left [a]</option>
+					<option value="S">left+right [S]</option>
+					<option value="w">jump [w]</option>
+					<option value="e">jump+right [e]</option>
+					<option value="q">jump+left [q]</option>
+					<option value="g">jump+left+right [W]</option>
+				</select>
+
+				<input type="number" id="ymin" placeholder="y min" min="1" max="998">
+				<input type="number" id="ymax" placeholder="y max" min="2" max="999"> <br>
+
+				<select id="zinput">
+					<option value="n">nothing [n]</option>
+					<option value="d">right [d]</option>
+					<option value="a">left [a]</option>
+					<option value="S">left+right [S]</option>
+					<option value="w">jump [w]</option>
+					<option value="e">jump+right [e]</option>
+					<option value="q">jump+left [q]</option>
+					<option value="g">jump+left+right [W]</option>
+				</select>
+
+				<input type="number" id="zmin" placeholder="z min" min="1" max="998">
+				<input type="number" id="zmax" placeholder="z max" min="2" max="999"> <br><br>
+				<input type="text" id="start" placeholder="at the start of every string">&nbsp;&nbsp;<input type="text" id="end" placeholder="at the end of every string"> <br><br>
+
+				<button onclick="generator()">generate</button> <br>
+				<p id="counter"></p>
+				<button onclick="clipboard()" id="ctc" hidden>copy to clipboard</button><br>
+				<p id="lel">put some parameters up there and the result will be here</p>
+				<textarea id="result" style="resize: none;" cols="52" rows="5" readonly hidden></textarea>
+			</center>
+		</div> 
+	</body>
+</html>
