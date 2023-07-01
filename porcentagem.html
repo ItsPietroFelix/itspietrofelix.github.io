@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<style>
+			@media (prefers-color-scheme: dark){
+				body{background-color: #23272A; color: #fff}
+				textarea{background-color: black; color:#fff;}
+			}
+			@media (prefers-color-scheme: light){
+				body{background-color: #F5F5F5; color: #000}
+				textarea{background-color: white; color: #000;}
+			}
+			body{ font-family: Segoe UI; padding: 20px} h1,h2 { line-height: 0.5 }
+		</style>
+		<script>
+			function calcular1(){
+			var pc = document.getElementById('percent').value;
+			var nm = document.getElementById('number').value; //pega os valores das caixinhas de texto
+			var result = (nm/100)*pc; // número dividido por 100 vezes a porcentagem
+			result = Math.round((result + Number.EPSILON) * 100) / 100 // arredondar pra no máximo 3 casas decimais
+			document.getElementById('nope').innerHTML = pc + "% de " + nm + " é <strong>" + result + "</strong>."
+			}
+
+			function calcular2(){
+			var pc1 = document.getElementById('percent1').value;
+			var nm1 = document.getElementById('number1').value; //pega os valores das caixinhas de texto
+			var result1 = (nm1 * 100) / pc1; // número dividido por 100 vezes a porcentagem
+			result1 = Math.round((result1 + Number.EPSILON) * 100) / 100 // arredondar pra no máximo 3 casas decimais
+			document.getElementById('nope').innerHTML = pc1 + "% de <strong>" + result1 + "</strong> é " + nm1 + ".";
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Eu sou tão ruim com porcentagem</h1>
+		<h2>que eu fiz um site só pra não ter que fazer de cabeça</h2>
+
+		<p>Quanto é <input type="number" id="percent" placeholder="Porcentagem" min="0" max="100">% de <input type="number" id="number" placeholder="Número" min="-9999" max="99999">? <button onclick="calcular1();">calcular</button><br>
+		<input type="number" id="percent1" placeholder="Porcentagem" min="0" max="100">% de X é <input type="number" id="number1" placeholder="Resultado" min="-9999" max="99999"> <button onclick="calcular2();">calcular</button></p>
+		<p id="nope"></p>
+	</body>
+</html>
