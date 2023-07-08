@@ -6,17 +6,14 @@
 		function countit(){
 			var text = document.getElementById('count').value;
 			document.getElementById('result').innerHTML = "Your text is <b>" + text.length + "</b> characters long.";
+			document.getElementById('resultspaceless').innerHTML = "(" + result.replace(/\s/g, "").length + " characters without spaces)";
 			let t;
 			t = setTimeout("countit()", 0001);
 		}
 	</script>
 	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 		body {
-			background-color: #23272A
-		}
-		
-		.white {
+			background-color: #23272A;
 			color: #99AAB5;
 			font-family: 'Segoe UI', sans-serif
 		}
@@ -27,22 +24,12 @@
 			color: #404EED;
 			border: 3px solid #99AAB5
 		}
-		
-		a, a:visited {
-			color: #99AAB5;
-			-webkit-transition: color 0.3s ease-in-out;
-			-moz-transition: color 0.3s ease-in-out;
-			-o-transition: color 0.3s ease-in-out;
-			transition: color 0.3s ease-in-out;
-			text-decoration: none;
-		}
-		
-		a:hover {color: #404EED}
 	</style>
 	<body onLoad="countit()">
 		<center>
-			<h1 class="white">Character Counter</h1>
-			<p id="result" class="white">This text is <b>0</b> characters long.</p>
+			<h1>Character Counter</h1>
+			<p id="result">This text is <b>0</b> characters long.</p>
+			<h5 id="resultspaceless">(0 characters without spaces)</h5>
 			<textarea autofocus name="count" id="count" class="count" cols="125" rows="30" placeholder="Put your text here.">Bruh</textarea>
 		</center>
 	</body>
