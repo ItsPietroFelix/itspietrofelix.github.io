@@ -6,7 +6,7 @@
 		function countit(){
 			var text = document.getElementById('count').value;
 			document.getElementById('result').innerHTML = "Your text is <b>" + text.length + "</b> characters long.";
-			document.getElementById('resultspaceless').innerHTML = "(" + result.replace(/\s/g, "").length + " characters without spaces)";
+			document.getElementById('resultspaceless').innerHTML = "(" + text.replace(/\s/g, "").length + " characters without spaces)";
 			let t;
 			t = setTimeout("countit()", 0001);
 		}
