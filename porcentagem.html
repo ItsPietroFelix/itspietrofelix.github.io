@@ -1,15 +1,14 @@
 <html>
 	<head>
+		<title>Porcentagem</title>
 		<style>
 			@media (prefers-color-scheme: dark){
 				body{background-color: #23272A; color: #fff}
-				textarea{background-color: black; color:#fff;}
 			}
 			@media (prefers-color-scheme: light){
 				body{background-color: #F5F5F5; color: #000}
-				textarea{background-color: white; color: #000;}
 			}
-			body{ font-family: Segoe UI; padding: 20px} h1,h2 { line-height: 0.5 }
+			body{ font-family: Segoe UI; padding: 20px} h1,h2,a { line-height: 0.5; text-decoration: none }
 		</style>
 		<script>
 			function calcular1(){
@@ -36,5 +35,6 @@
 		<p>Quanto é <input type="number" id="percent" placeholder="Porcentagem" min="0" max="100">% de <input type="number" id="number" placeholder="Número" min="-9999" max="99999">? <button onclick="calcular1();">calcular</button><br>
 		<input type="number" id="percent1" placeholder="Porcentagem" min="0" max="100">% de X é <input type="number" id="number1" placeholder="Resultado" min="-9999" max="99999"> <button onclick="calcular2();">calcular</button></p>
 		<p id="nope"></p>
+		<a href="./" style="color: #ff88ff">feito por mim :)</a>
 	</body>
 </html>
