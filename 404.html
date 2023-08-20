@@ -1,23 +1,22 @@
 ---
 permalink: /404.html
 ---
-<htnl>
+<html>
   <!-- Why are you reading the source code of a fucking 404 page are you braindead or what? -->
-  <title id="lol2">dead end, buster.</title>
+  <title id="lol">Page Not Found</title>
   <link rel="stylesheet" href="./files/style.css">
   <script>
     function generateFunnyMessage(){
-      let textArray = ["whoopsies, that wasn't your website!", "dead end, buster.", "wrong way", "sqrt(163216)", "almost there, jk ur not", "you're not that guy", "insert a funny message here", "you done goofed", "F", "ooh, a gun!", "that hurt", "randomly generated text", "kinda missed the page there"];
-      var randomIndex = Math.floor(Math.random() * textArray.length); 
-      var funnyMessage = textArray[randomIndex];
-      document.getElementById("lol").innerHTML = funnyMessage;
-      document.getElementById("lol2").innerHTML = funnyMessage;
+      let rm = ["whoopsies, that wasn't your website!", "dead end, buster.", "wrong way", "sqrt(163216)", "110010100", "...", "almost there, jk ur not", "insert a funny message here", "you done goofed", "F", "that hurt", "randomly generated text", "kinda missed the page there", "lorem ipsum", "oops", "try again", "not quite!", "out of the park!", "give it another try", "get some glasses", "nope", "99% of gamblers quit before they hit it big", "404", "maybe next time", "ouch", "a few seconds of your life wasted", "why are you here", "How Did We Get Here?", "ahahaah ok", "uhh... meow?", "i wasted my life writing these", "boom", "yikes!", "ok not here", "not today, try again tomorrow.", "Nice Swinging!", "¯\_(ツ)_/¯", "idk", "🤷", "kissing a non family member is weird as fuck", "up up down down left right left right b a start", "whoopsie daisy", "peek-a-boo", "awake", "the bluetooth device is ready to pair", "bruh sound effect #2", "404 page not found 🤓🤓🤓", "was that the error of 87", "how who when where why", "error_page = error_page + 1;", "https://imgur.com/a/Mm4Sgyq"];
+      var rin = Math.floor(Math.random() * rm.length); 
+      var fm = rm[rin];
+      document.getElementById("lol").innerHTML = fm;
     }
   </script>
   <body onload="generateFunnyMessage()" style="background-color: #99aab5">
     <center>
       <h1 id="lol" style="color: #23272a;">dead end</h1>
-      <h2>This is probably <b style="color: #ED4245;"><i>not</i></b> the page you wanted to be in.</h2>
+      <h2>This is <b style="color: #ED4245;"><i>probably not</i></b> the page you wanted to be in.</h2>
       <h3>You can go to the <a href="./index">home page</a> instead.</h3>
       <h5 class="lato"><i>Check if you didn't misspell the URL, or if the page isn't there anymore, in my <a href="https://github.com/ItsPietroFelix/itspietrofelix.github.io">Github</a>!</i></h5>
     </center>
