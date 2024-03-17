@@ -2,25 +2,58 @@
 permalink: /404.html
 ---
 <html>
-  <!-- Why are you reading the source code of a fucking 404 page are you braindead or what? -->
-  <title id="lol">Page Not Found</title>
-  <link rel="stylesheet" href="./files/style.css">
-  <link rel="icon" href="./files/facewithspiraleyes.png">
-  <script>
-    function generateFunnyMessage(){
-      let rm = ["whoopsies, that wasn't your website!", "dead end, buster.", "wrong way", "sqrt(163216)", "110010100", "...", "almost there, jk ur not", "insert a funny message here", "you done goofed", "F", "that hurt", "randomly generated text", "kinda missed the page there", "lorem ipsum", "oops", "try again", "not quite!", "out of the park!", "give it another try", "get some glasses", "nope", "99% of gamblers quit before they hit it big", "404", "maybe next time", "ouch", "a few seconds of your life wasted", "why are you here", "How Did We Get Here?", "ahahaah ok", "uhh... meow?", "i wasted my life writing these", "boom", "yikes!", "ok not here", "not today, try again tomorrow.", "Nice Swinging!", "¯\_(ツ)_/¯", "idk", "🤷", "kissing a non family member is weird as fuck", "up up down down left right left right b a start", "whoopsie daisy", "peek-a-boo", "awake", "the bluetooth device is ready to pair", "bruh sound effect #2", "404 page not found 🤓🤓🤓", "was that the error of 87", "how who when where why", "error_page = error_page + 1;", "https://imgur.com/a/Mm4Sgyq"];
-      var rin = Math.floor(Math.random() * rm.length); 
-      var fm = rm[rin];
-      document.getElementById("lol").innerHTML = fm;
-      document.getElementById("lol2").innerHTML = fm;
-    }
-  </script>
-  <body onload="generateFunnyMessage()" style="background-color: #99aab5">
-    <center>
-      <h1 id="lol2" style="color: #23272a;">dead end</h1>
-      <h2>This is <b style="color: #ED4245;"><i>probably not</i></b> the page you wanted to be in.</h2>
-      <h3>You can go to the <a href="./">home page</a> instead.</h3>
-      <h5 class="lato"><i>Check if you didn't misspell the URL, or if the page isn't there anymore, in my <a href="https://github.com/ItsPietroFelix/itspietrofelix.github.io">Github</a>!</i></h5>
-    </center>
-  </body>
+    <head>
+        <title id="lol2">Page not Found></title>
+        <link rel="icon" href="./files/facewithspiraleyes.png">
+        <script>
+            function generateFunnyMessage(){
+            let rm = ["whoopsies, that wasn't your website!", "dead end, buster.", "wrong way", "sqrt(163216)", "110010100", "...", "almost there, jk ur not", "insert a funny message here", "you done goofed", "F", "that hurt", "randomly generated text", "kinda missed the page there", "lorem ipsum", "oops", "try again", "not quite!", "out of the park!", "give it another try", "get some glasses", "nope", "99% of gamblers quit before they hit it big", "404", "maybe next time", "ouch", "a few seconds of your life wasted", "why are you here", "How Did We Get Here?", "ahahaah ok", "uhh... meow?", "i wasted my life writing these", "boom", "yikes!", "ok not here", "not today, try again tomorrow.", "Nice Swinging!", "¯&#92;_(ツ)_&#47;¯", "idk", "🤷", "kissing a non family member is weird as fuck", "up up down down left right left right b a start", "whoopsie daisy", "peek-a-boo", "awake", "the bluetooth device is ready to pair", "bruh sound effect #2", "404 page not found 🤓🤓🤓", "was that the error of 87", "how who when where why", "error_page = error_page + 1;", "https://imgur.com/a/Mm4Sgyq", "yep. still not here."];
+            var rmg = Math.floor(Math.random() * rm.length); 
+            var fm = rm[rmg];
+            let oops = ["Oops", "Yikes", "Welp", "*GASP*", "Oh no", "Blimey", "Sorry", "Hey", "So"];
+            var rog = Math.floor(Math.random() * oops.length); 
+            var yike = oops[rog];
+            document.getElementById("lol").innerHTML = fm;
+            document.getElementById("lol2").innerHTML = fm;
+            document.getElementById("yikes").innerHTML = yike;
+            }
+        </script>
+        <style>
+            a, a:visited{ color: #7289da }
+            a:hover { color: #4e5d94 }
+
+            h1:hover {
+                animation: vrum 0.15s;
+                animation-iteration-count: infinite;
+                color: #FFB9B9
+            }
+
+            .center {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                width: 100%;
+                font-family: Segoe UI
+            }
+
+            @keyframes vrum {
+                0% { transform: translate(1px, 1px) rotate(0deg); }
+                25% { transform: translate(0px, 1px) rotate(-1deg); }
+                50% { transform: translate(1px, 0px) rotate(0deg); }
+                75% { transform: translate(0px, 0px) rotate(1deg); }
+                100% { transform: translate(1px, 0px) rotate(0deg); }
+            }
+        </style>
+    </head>
+    <body onLoad="generateFunnyMessage()" style="background-color: #23272a; overflow: hidden; color: #fff;">
+        <div class="center">
+            <center>
+                <h1 id="lol">Page not found</h1>
+
+                <h4><font id="yikes">Oops</font>, this probably <i style="color: #e03f4f ">isn't</i> the page you wanted to be in.<br>Check if you typed the URL correctly or if the page is still up.<br>If anything, you can go back to the <a href="./">home page</a>.</h4>
+            </center>
+        </div>
+    </body>
 </html>
