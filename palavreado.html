@@ -2,6 +2,21 @@
 <html>
 <title>Palavreado</title>
 <style>html {font-family: Arial; color: white; background-color: #23272a} pre {font-family: Segoe UI}</style>
+<script>
+function datinha(){
+let ut = 1711524325; // omagah unix timestamps?????
+var d = new Date(ut * 1000);
+var h = d.getHours();
+var m = "0" + d.getMinutes();
+var s = "0" + d.getSeconds();
+var dia = d.getDate();
+var mes = d.getMonth() + 1;
+var ano = d.getFullYear();
+var t = 'Editado pela última vez no dia ' + dia + '/' + mes + '/' + ano + ' às ' + h + ':' + m.substr(-2) + ':' + s.substr(-2);
+document.getElementById('lastupdated').innerHTML = t;
+}
+</script>
+<body onLoad="datinha()">
 <h1>palavras que eu gosto muito</h1>
 <pre>
 fuleiro
@@ -15,6 +30,8 @@ boboca
 desserviço
 tolice
 pança
+espelunca
+mequetrefe
 bocó
 caipira
 carácolis
@@ -23,21 +40,33 @@ formidável
 hipérbole
 desconjuntura
 biscate
+estrupício
+catimba
 folia
-mardito <i>(sim, com r, mesmo)</i>
+trabuco
+<u title="sim, com r mesmo!">mardito</u>
 miserável
 rapariga
 dissertação
 cacilda
 coisado
+parafernália
+calhambeque
+faniquito
+bulhufas
 acéfalo
 metediço
 tiração
 frangalho
 marola
 ceroula
+buçanha
+panaca
+chinfrim
 sujismundo
+morfético
 paspalho
+esdrúxulo
 sarmoura
 </pre>
 <h2>sufixos</h2>
@@ -46,4 +75,6 @@ sarmoura
 -ículo / -úculo
 -ice / -isse
 </pre>
+<i id="lastupdated">Carregando...</i>
+</body>
 </html>
