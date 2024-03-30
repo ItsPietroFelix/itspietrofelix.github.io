@@ -2,20 +2,7 @@
 <html>
 <title>Palavreado</title>
 <style>html {font-family: Arial; color: white; background-color: #23272a} pre {font-family: Segoe UI}</style>
-<script>
-function datinha(){
-let ut = 1711771022; // omagah unix timestamps?????
-var d = new Date(ut * 1000);
-var h = d.getHours();
-var m = "0" + d.getMinutes();
-var s = "0" + d.getSeconds();
-var dia = d.getDate();
-var mes = d.getMonth() + 1;
-var ano = d.getFullYear();
-var t = 'Editado pela última vez no dia ' + dia + '/' + mes + '/' + ano + ' às ' + h + ':' + m.substr(-2) + ':' + s.substr(-2);
-document.getElementById('lastupdated').innerHTML = t;
-}
-</script>
+<script type="text/javascript" src="/files/unix.js"></script>
 <body onLoad="datinha()">
 <h1>palavras que eu gosto muito</h1>
 <pre>
