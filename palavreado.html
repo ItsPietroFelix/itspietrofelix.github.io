@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html>
-<title>Palavreado</title>
-<style>html {font-family: Arial; color: white; background-color: #23272a} pre {font-family: Segoe UI} u{opacity: 0.8}</style>
-<script type="text/javascript" src="/files/unix.js"></script>
-<script>
-  function garrafa(){
-  timeystampey(1717445953, 1, true);
-  let adjetivos = ['fuleira', 'tosca', 'capenga', 'canalha', 'mequetrefe', 'chinfrin', 'esdrúxula'];
-  let arrayPoucoFuleiro = ['cafajeste', 'meliante', 'batuta', 'fagulha', 'entulho', 'desleixo', 'xexelento', 'tosquice', 'malandragem', 'palerma', 'sabugar', 'comichão', 'picante', 'fiasco', 'estabanado', 'saculejar', 'marra', 'escarrar', 'parlapatão', 'sabichão', 'estapafúrdio', 'fuleiro', 'pixurucar', 'boboca', 'miserável', 'formidável', 'marola', 'calhorda', 'porre', 'catimba', 'esdrúxulo', 'esculacho', 'tiração', 'trambique', 'trela', 'leproso', 'chinfrim', 'trabuco', 'tripa', 'supimpa', '<u><b title="com r mesmo!">mardito</b></u>', 'canalha', 'trela', 'desconjuntura', 'hipérbole', 'devaneio', 'carniça', 'capenga', 'patifaria', 'caricato', 'vergalhão', 'energúmeno', 'fracassado', 'chocho', 'joça', 'ceroula', 'bulhufas', 'carácolis', 'desbaratinar', 'melindroso', 'frangalho', 'patuscada', 'aloprar', 'treco', 'rapariga', 'ladainha', 'escalafobético', 'lazarento', 'buçanha', 'ximbica', 'pururuca', 'inadimplência', 'biscate', 'pança', 'ludibriar', 'bonachão', 'impertinente', 'pachorra', 'bocó', 'falácia', 'dissertação', 'escrachar', 'metediço', 'ferrenho', 'caipira', 'morfético', 'azucrinar', 'perneta', 'cacilda', 'panaca', 'tribufu', 'faniquito', 'folia', 'caô', 'maçante', 'tolice', 'acéfalo', 'alastro', 'coisado', 'capacho', 'sarmoura', 'balbúrdia', 'estrupício', 'enfadonho', 'calhambeque', 'saçaricar', 'espelunca', 'pocar', 'parafernália', 'sujismundo', 'chucro', 'cabaço', 'tchola', 'draga', 'desserviço', 'barbaridade', 'chulo', 'lamecha', 'caçamba', 'pisa', 'paspalho', 'xurumela', 'mangalho', 'mequetrefe', 'tralha', 'pereba', 'esbugalhar', 'urucubaca', 'mondrongo', 'calombo', 'asno', 'putrefato', 'pigarro', 'fétido', 'carranca', 'asco', 'sórdido', 'repugnante'];
-  let fuleirarArray = arrayPoucoFuleiro.sort((a, b) => 0.5 - Math.random());
-  let enterNoArray = fuleirarArray.join('<br>');
-  let adjetivoAleatorio = adjetivos[Math.floor(Math.random()*adjetivos.length)];
-  document.getElementById("counter").innerHTML = 'Com ' + arrayPoucoFuleiro.length + ' palavras ' + adjetivoAleatorio + 's no total!';
-  document.getElementById("monitor").innerHTML = enterNoArray;
-}
-</script>
-<body onLoad="garrafa()">
-<h2>PALAVREADO</h2>
-<h3 id="counter">Com mais de 100 palavras no total!</h3>
-<pre id="monitor">
-  Carregando...
-</pre>
-<h2>sufixos</h2>
-<pre>
--oide
--ículo / -úculo
--ice / -isse
--nalha / -ralha
-</pre>
-<i id="lastupdated">Carregando...</i>
-</body>
+    <title>Palavreado</title>
+    <style>html {font-family: Arial; color: white; background-color: #23272a} #palavreado {font-family: Segoe UI} .last { line-height: 0.55 } u{opacity: 0.8} ul { background: linear-gradient(180deg, rgba(35,39,42,1) 0%, rgba(18,20,21,1) 100%); padding: 20px; list-style-position: inside; }  ul li { background: rgb(44,47,51); color: white; padding: 5px; margin-left: 30px; margin-right: 30px; }</style>
+    <script type="text/javascript" src="/files/unix.js"></script>
+    <script>
+        function garrafa(){
+            timeystampey(1717463878, 1, true);
+            let adjetivos = ['fuleira', 'tosca', 'capenga', 'canalha', 'mequetrefe', 'chinfrin', 'esdrúxula'];
+            let arrayPoucoFuleiro = ['cafajeste', 'meliante', 'batuta', 'fagulha', 'entulho', 'desleixo', 'xexelento', 'tosquice', 'malandragem', 'palerma', 'sabugar', 'comichão', 'picante', 'fiasco', 'estabanado', 'saculejar', 'marra', 'escarrar', 'parlapatão', 'sabichão', 'estapafúrdio', 'fuleiro', 'pixurucar', 'boboca', 'miserável', 'formidável', 'marola', 'calhorda', 'porre', 'catimba', 'esdrúxulo', 'esculacho', 'tiração', 'trambique', 'trela', 'leproso', 'chinfrim', 'trabuco', 'tripa', 'supimpa', 'maldito', 'canalha', 'trela', 'desconjuntura', 'hipérbole', 'devaneio', 'carniça', 'capenga', 'patifaria', 'caricato', 'vergalhão', 'energúmeno', 'fracassado', 'chocho', 'joça', 'ceroula', 'bulhufas', 'carácolis', 'desbaratinar', 'melindroso', 'frangalho', 'patuscada', 'aloprar', 'treco', 'rapariga', 'ladainha', 'escalafobético', 'lazarento', 'buçanha', 'ximbica', 'pururuca', 'inadimplência', 'biscate', 'pança', 'ludibriar', 'bonachão', 'impertinente', 'pachorra', 'bocó', 'falácia', 'dissertação', 'escrachar', 'metediço', 'ferrenho', 'caipira', 'morfético', 'azucrinar', 'perneta', 'cacilda', 'panaca', 'tribufu', 'faniquito', 'folia', 'caô', 'maçante', 'tolice', 'acéfalo', 'alastro', 'coisado', 'capacho', 'sarmoura', 'balbúrdia', 'estrupício', 'enfadonho', 'calhambeque', 'saçaricar', 'espelunca', 'pocar', 'parafernália', 'sujismundo', 'chucro', 'cabaço', 'tchola', 'draga', 'desserviço', 'barbaridade', 'chulo', 'lamecha', 'caçamba', 'pisa', 'paspalho', 'xurumela', 'mangalho', 'mequetrefe', 'tralha', 'pereba', 'esbugalhar', 'urucubaca', 'mondrongo', 'calombo', 'asno', 'putrefato', 'pigarro', 'fétido', 'carranca', 'asco', 'sórdido', 'repugnante', 'tenência', 'ostracismo', 'encardido'];
+            let adjetivoAleatorio = adjetivos[Math.floor(Math.random()*adjetivos.length)];
+            document.getElementById("counter").innerHTML = 'Com ' + arrayPoucoFuleiro.length + ' palavras ' + adjetivoAleatorio + 's no total!';
+            let fuleirarArray = arrayPoucoFuleiro.sort((a, b) => 0.5 - Math.random());
+            var UL = document.createElement('ul');
+            for(var i = 0; i < fuleirarArray.length; i++) {
+                var LI = document.createElement('li');
+                LI.appendChild(document.createTextNode(fuleirarArray[i]));
+                UL.appendChild(LI);
+            }
+            return document.getElementById('palavreado').appendChild(UL);
+        }
+    </script>
+    <body onLoad="garrafa()">
+        <center>
+            <h1>PALAVREADO</h1>
+            <h3 id="counter">Com mais de 100 palavras no total!</h3>
+        </center>
+        <div id="palavreado">
+        </div>
+        <h2>sufixos (extra)</h2>
+        <pre>
+        -oide
+        -ículo / -úculo
+        -ice / -isse
+        -nalha / -ralha
+        </pre>
+        <div class="last">
+            <p>Atualizado pela última vez em:</p>
+            <i id="lastupdated">Carregando...</i>
+        </div>
+    </body>
 </html>
