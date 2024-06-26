@@ -3,12 +3,140 @@
     <head>
         <title>Palavreado</title>
         <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4da.png">
-        <style>html {font-family: Arial; color: white; background: linear-gradient(180deg, rgba(35,39,42,1) 0%, rgba(18,20,21,1) 100%);} #palavreado {font-family: Segoe UI} .last { line-height: 1 } u{opacity: 0.8} ul { padding: 20px; list-style-position: inside; }  ul li { background: rgb(44,47,51); color: white; padding: 5px; margin-left: 30px; margin-right: 30px; } button { background-color: rgb(44,47,51); transition-duration: 0.4s; cursor: pointer; padding: 15px 20px; font-size: 100%; color: white; border: 2px solid white; border-radius: 12px } button:hover {background-color: #99aab5; border: 2px solid #99aab5; color: black }</style>
+        <style>
+            html {
+                font-family: Arial;
+                color: white;
+                background: linear-gradient(180deg, rgba(35,39,42,1) 0%, rgba(18,20,21,1) 100%);
+            }
+
+            #palavreado { font-family: Segoe UI }
+            .last, .header { line-height: 1 }
+            .shorterlineheightimtoolazylahblahwaitwhyamitypinginenglishthispageisinportuguesewtf { line-height: 0.1 }
+
+            u { opacity: 0.8 }
+            ul {
+                padding: 20px;
+                list-style-position: inside
+            } 
+            ul li {
+                background: rgb(44,47,51);
+                color: white;
+                padding: 5px;
+                margin-left: 30px;
+                margin-right: 30px
+            }
+
+            button {
+                background-color: rgb(44,47,51);
+                transition-duration: 0.4s;
+                cursor: pointer;
+                padding: 15px 20px;
+                font-size: 100%;
+                color: white;
+                border: 2px solid white;
+                border-radius: 12px
+            } 
+            button:hover {
+                background-color: #99aab5;
+                border: 2px solid #99aab5;
+                color: black
+            }
+
+            .fuleiro {
+                position: fixed;
+                margin: 0;
+                background: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(5px);
+                transition: opacity 500ms;
+                visibility: hidden;
+                opacity: 0;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                transform: translate(-50%, -50%);
+                border-top: 7px dashed #4e5d94;
+                border-bottom: 7px dashed #4e5d94;
+            }
+            .fuleiro:target {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .cont-popup {
+                margin: 70px auto;
+                padding: 20px;
+                background: #99aab5;
+                border-radius: 5px;
+                width: 35%;
+                height: 50%;
+                position: relative;
+                transition: all 5s ease-in-out;
+            }
+
+            #popup-title {
+                margin-top: 0;
+                color: #333;
+            }
+
+            .fechar-popup {
+                position: absolute;
+                top: 12px;
+                right: 30px;
+                transition: all 200ms;
+                font-size: 30px;
+                font-weight: bold;
+                text-decoration: none;
+                color: #23272a;
+            }
+
+            .fechar-popup:hover {
+              color: #161cbc;
+            }
+
+            .abobrinhas {
+                max-height: 30%;
+                color: black;
+                cursor: default;
+                overflow: auto;
+            }
+
+            @media screen and (max-width: 700px){
+                .cont-popup{
+                    width: 70%;
+                }
+            }
+
+            #pq {
+                color: #EEE;
+                cursor: help;
+            }
+            #pq:hover{
+                color: #DDD
+            }
+
+            #chroma{
+                animation: rainbow 2.5s infinite;
+            }
+            @keyframes rainbow {
+                0% { color: #ff0000; }
+                10% { color: #ff6600; }
+                20% { color: #ffff00; }
+                30% { color: #66FF00; }
+                40% { color: #00ff00; }
+                50% { color: #00ffff; }
+                60% { color: #0000ff; }
+                70% { color: #6666FF; }
+                80% { color: #6600ff; }
+                90% { color: #6600ff; }
+                100% { color: #ff00ff; }
+            }
+            </style>
         <script type="text/javascript" src="/files/unix.js"></script>
         <script>
+            timeystampey(1719430159, 1, true);
             let arrayPoucoFuleiro;
             function garrafa(){
-                timeystampey(1717867004, 1, true);
                 let adjetivos = ['fuleira', 'tosca', 'capenga', 'canalha', 'mequetrefe', 'chinfrin', 'esdrúxula'];
                 arrayPoucoFuleiro = ['cafajeste', 'meliante', 'batuta', 'fagulha', 'entulho', 'desleixo', 'xexelento', 'tosquice', 'malandragem', 'palerma', 'sabugar', 'comichão', 'picante', 'fiasco', 'estabanado', 'saculejar', 'marra', 'escarrar', 'parlapatão', 'sabichão', 'estapafúrdio', 'fuleiro', 'pixurucar', 'boboca', 'miserável', 'formidável', 'marola', 'calhorda', 'porre', 'catimba', 'esdrúxulo', 'esculacho', 'tiração', 'trambique', 'lambisgoia', 'leproso', 'chinfrim', 'trabuco', 'tripa', 'supimpa', 'maldito', 'canalha', 'trela', 'desconjuntura', 'hipérbole', 'devaneio', 'carniça', 'capenga', 'patifaria', 'caricato', 'vergalhão', 'energúmeno', 'fracassado', 'chocho', 'joça', 'ceroula', 'bulhufas', 'carácolis', 'desbaratinar', 'melindroso', 'frangalho', 'patuscada', 'aloprar', 'treco', 'rapariga', 'ladainha', 'escalafobético', 'lazarento', 'buçanha', 'ximbica', 'pururuca', 'inadimplência', 'biscate', 'pança', 'ludibriar', 'bonachão', 'impertinente', 'pachorra', 'bocó', 'falácia', 'dissertação', 'escrachar', 'metediço', 'ferrenho', 'caipira', 'morfético', 'azucrinar', 'perneta', 'cacilda', 'panaca', 'tribufu', 'faniquito', 'folia', 'caô', 'maçante', 'tolice', 'acéfalo', 'alastro', 'coisado', 'capacho', 'sarmoura', 'balbúrdia', 'estrupício', 'enfadonho', 'calhambeque', 'saçaricar', 'espelunca', 'pocar', 'parafernália', 'sujismundo', 'chucro', 'cabaço', 'tchola', 'draga', 'desserviço', 'barbaridade', 'chulo', 'lamecha', 'caçamba', 'pisa', 'paspalho', 'xurumela', 'mangalho', 'mequetrefe', 'tralha', 'pereba', 'esbugalhar', 'urucubaca', 'mondrongo', 'calombo', 'asno', 'putrefato', 'pigarro', 'fétido', 'carranca', 'asco', 'sórdido', 'repugnante', 'tenência', 'ostracismo', 'encardido', 'perrengue', 'encosto', 'bisbilhotar', 'bugiganga', 'birosca', 'pindaíba', 'serelepe', 'geringonça', 'rebimboca', 'gororoba', 'pocilga', 'arapuca', 'muquifo', 'piripaque', 'jiripoca', 'pimpolho', 'maciota', 'maracutaia', 'macumba', 'diabrura', 'travesso', 'chapisco', 'quinquilharia', 'lapada', 'bodega', 'fajuto', 'entorpecente', 'esporro', 'firula', 'pilantra', 'torpe', 'esculhambar', 'siricutico', 'peripécia'];
                 let adjetivoAleatorio = adjetivos[Math.floor(Math.random()*adjetivos.length)];
@@ -22,15 +150,32 @@
                 }
                 return document.getElementById('palavreado').appendChild(UL);
             }
-            function monitor(){         alert(arrayPoucoFuleiro[Math.floor(Math.random()*arrayPoucoFuleiro.length)])
+            function monitor(){
+                alert(arrayPoucoFuleiro[Math.floor(Math.random()*arrayPoucoFuleiro.length)])
             }
         </script>
     </head>
     <body onLoad="garrafa()">
+        <div id="pop-up" class="fuleiro">
+            <div class="cont-popup">
+                <a class="fechar-popup" href="#" title="Fechar esse pop-up">x</a>
+                <h3 id="popup-title">Sobre o Palavreado:</h3>
+                <div class="abobrinhas">
+                    O <b>Palavreado</b> foi feito por mim <span id="chroma" href="https://itspietrofelix.carrd.co/">(ItsPietroFelix)</span> para servir como um dicionário somente para palavras excêntricas, esquisitas, incomuns, etc. do nosso dicionário.
+                    <br>
+                    Muitas palavras aqui são bem difíceis de serem vistas e/ou faladas normalmente, e fogem do padrão de fala de muitos por aí, mas são ótimas para dar aquele <i>apimentada</i> no seu vocabulário <b>=)</b>
+                </div>
+            </div>
+        </div>
         <center>
-            <h1>PALAVREADO</h1>
-            <h3 id="counter">Com mais de 100 palavras no total!</h3>
-            <button title="Clique aqui para gerar uma palavra aleatória da lista!" onclick="monitor()">Gerar palavreado aleatório</button>
+            <div class="header">
+                <h1>PALAVREADO</h1>
+                <h3 id="counter">Com mais de 100 palavras no total!</h3>
+                <div class="shorterlineheightimtoolazylahblahwaitwhyamitypinginenglishthispageisinportuguesewtf">
+                    <button title="Clique aqui para gerar uma palavra aleatória da lista!" onclick="monitor()">Gerar palavreado aleatório</button>
+                    <h4 id="pq" onclick="location.href='#pop-up'"><i>Por que essa lista existe?</i></h4>
+                </div>
+            </div>
         </center>
         <div id="palavreado">
         </div>
