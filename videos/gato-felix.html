@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>um vídeo sobre o GATO FELIX</title>
+		<link rel="stylesheet" href="../files/CORES.css">
+		<script type="text/javascript" src="../files/unix.js"></script>
+		<style>
+			* { transition: .4s ease-out; }
+
+			.coder {
+				background-color: #808080;
+				border-radius: 7px;
+				background-blend-mode: multiply;
+				color: black;
+				padding: 2vh;
+				display: inline-block;
+				line-height: 1.1
+			}
+
+			body {
+				background-color: #111;
+				color: #cdcdcd;
+				font-family: Arial;
+				margin: 20px;
+				line-height:1.55;
+			}
+
+			a { color: #0389ff }
+			a:hover { color: #0322cc }
+
+			center h1 {
+			line-height: 0.3;
+			}
+			center h4 {
+			line-height: 1.2
+			}
+			span.coisas {
+			  text-align: center;
+			  cursor: pointer;
+			}
+
+			.temaescurocontrastebaixo {
+			background-color: #111;
+			color: #cdcdcd;
+			}
+			.temaescurocontrastealto {
+			background-color: black;
+			color: white;
+			}
+
+			.temaescurocontrastealto a { color: #00ffff }
+			.temaescurocontrastealto a:hover { color: #04cccc }
+			.temaclarocontrastealto a { color: #0080ff }
+			.temaclarocontrastealto a:hover { color: #004d99 }
+
+			.temaclarocontrastealto {
+			background-color: white;
+			color: black;
+			}
+			.temaclarocontrastebaixo {
+			background-color: #dedede;
+			color: #222;
+			}
+
+			#tema:hover, #contraste:hover { color: #ff5555; }
+			#referoncas span{ opacity: 60%; cursor: pointer}
+			#referoncas span:hover{ opacity: 25% }
+		</style>
+		<script>
+			let contrastes = 0;
+			let temas = 0;
+			function yayloaded(){
+				document.body.classList.toggle('temaescurocontrastebaixo');
+				timeystampey(1723502480, 1, true);
+				document.getElementById('timers').innerHTML = "Página atualizada pela última vez em " + t;
+			}
+			function contraste() {
+				contrastes++;
+				let valor = "Alto";
+				if (contrastes & 1 == 1) { 
+					valor = "Alto" 
+				} else { 
+					valor = "Normal" 
+				}
+				document.getElementById('contraste').innerHTML = "Contraste: " + valor;
+				check();
+			}
+			function tema(){
+				temas++;
+				let temar = "Claro";
+				if (temas & 1 == 1) {
+					temar = "Claro"; 
+				} else{ 
+					temar = "Escuro"; 
+				}
+				document.getElementById('tema').innerHTML = "Tema: " + temar;
+				check();
+			}
+			function check(){
+				if((temas % 2  == 0) == true && (contrastes % 2  == 0) == true) { 
+					document.body.classList.add("temaescurocontrastebaixo");
+					document.body.classList.remove("temaclarocontrastebaixo");
+					document.body.classList.remove("temaclarocontrastealto");
+					document.body.classList.remove("temaescurocontrastealto");
+				}
+				else if((temas % 2  == 0) == false && (contrastes % 2  == 0) == true) {
+					document.body.classList.add("temaclarocontrastebaixo");
+					document.body.classList.remove("temaclarocontrastealto");
+					document.body.classList.remove("temaescurocontrastealto");
+					document.body.classList.remove("temaescurocontrastebaixo");
+				}
+				else if((temas % 2  == 0) == true && (contrastes % 2  == 0) == false) {
+					document.body.classList.add("temaescurocontrastealto");
+					document.body.classList.remove("temaclarocontrastebaixo");
+					document.body.classList.remove("temaclarocontrastealto");
+					document.body.classList.remove("temaescurocontrastebaixo");
+				}
+				else if((temas % 2  == 0) == false && (contrastes % 2  == 0) == false) {
+					document.body.classList.add("temaclarocontrastealto");
+					document.body.classList.remove("temaclarocontrastebaixo");
+					document.body.classList.remove("temaescurocontrastealto");
+					document.body.classList.remove("temaescurocontrastebaixo");
+				}
+				// essa parte demorou pra caralho pqp
+			}
+		</script>
+	</head>
+	<body onload="yayloaded()">
+		<span class="coisas"><p><b id="tema" onclick="tema()">Tema: Escuro</b> • <b id="contraste" onclick="contraste()">Contraste: Normal</b></p></span>
+		<center id="comeco">
+		<h1>"um vídeo sobre o GATO FELIX"</h1>
+		<h4>Status atual: Edição [~8 minutos]<br><span id="timers">Página atualizada pela última vez em</span></h4>
+		
+		<hr>
+
+		<h2 name="info" style="text-align: left;">Informações básicas</h2>
+
+		<h4>Provável descrição do vídeo</h4>
+		<div class="coder"><code>Uma análise cirúrgica de um gato preto que só deu azar a si mesmo.<br>
+		Me ache por aí: https://itspietrofelix.carrd.co<br>
+		Músicas, fontes e outras coisas: http://itspietrofelix.github.io/videos/gato-felix</code></div>
+		</center>
+
+		<h4>Datas</h4>
+
+		<ul>
+			<li>Primeira idealização do vídeo: <b>25 de maio de 2023</b></li>
+			<li>Roteiro foi começado em <b>29 de junho de 2023</b></li>
+			<li>Roteiro finalizado em <b>11 de julho de 2024</b></li>
+			<li>Edição começada em <b>12 de julho de 2024</b></li>
+			<li>Edição finalizada em <b>N/A</b></li>
+			<li>Vídeo publicado em <b>N/A</b></li>
+		</ul>
+
+		<center> <h5 title="Vagabundo é foda.">Nota de procrastinação <b style="color: #FFD700; animation: rainbow 5s infinite;">9.85</b>/10</h5> </center>
+		<hr>
+
+		<h2 name="cred">Créditos</h2>
+
+		<p id="referoncas">
+			<strong>Roteiro, Animação, Edição e alguns efeitos sonoros:</strong> eu :) <s><i>por isso que ta ruim kk</i></s><br>
+			<strong>Ajuda com Revisão:</strong> <span onclick="window.open('https://www.youtube.com/@treisdentess)" title="deu 5 conto no pix pra eu fazer esse vídeo">treisdente</span>, <span onclick="window.open('https://www.youtube.com/@gladiador2844')" title="me deu 10 conto no pix pra fazer esse vídeo">Gladiador2844</span> e <span onclick="window.open('https://www.youtube.com/@ukasdubbing134')" title="me jurou de morte se eu n fizesse esse vídeo">Lukas Dubbing</span><br>
+			<strong title="o miserável mal ficava parado pra tirar as fotos pqp">Atores:</strong> Meu gatinho, Weasley
+		</p>
+
+		<h3 name="insp">Inspirações</h4> <p>
+			<a href="https://www.youtube.com/watch?v=J11vrDKxnRo">Felix The Cat Iceberg EXPLAINED</a> | kevsomeone<br>
+
+			<a href="https://www.youtube.com/watch?v=m91o9y8oOTE">The Twisted Tales of Felix the Cat REVIEW</a> | Neil Reviews<br>
+
+			<a href="https://www.youtube.com/watch?v=B4c2VKNTsBE">ICEBERG DO PICA PAU</a> | Woods<br>
+
+			<a href="https://www.youtube.com/watch?v=MrhDr-11rrw">ODISSEIA DO PICA PAU</a> | Tropia
+
+		</p> <hr>
+
+		<h2 name="font" title="ai que bicha formatinho abnt kkkk da a bunda logo pietrao">Referências Bibliográficas / Fontes</h2>
+
+		<p id="referoncas">
+			DUNNING, Jennifer. The Real Star of Felix the Cat. The New York Times, Nova York, 16 maio 1976. p. 347. Disponível em: <span onclick="window.open('https://www.nytimes.com/1976/05/16/archives/new-jersey-weekly-the-real-star-of-felix-the-cat-star-of-felix-the.html')">&lt;https://www.nytimes.com/1976/05/16/archives/new-jersey-weekly-the-real-star-of-felix-the-cat-star-of-felix-the.html&gt;</span><br>
+
+			MCGILL, Douglas C. Otto Messmer Is Dead At 91; Created 'Felix the Cat' Films. The New York Times, Nova York, 29 out. 1983. 1, p. 32. Disponível em: <span onclick="window.open('https://www.nytimes.com/1983/10/29/obituaries/otto-messmer-is-dead-at-91-created-felix-the-cat-flims.html')">&lt;https://www.nytimes.com/1983/10/29/obituaries/otto-messmer-is-dead-at-91-created-felix-the-cat-flims.html&gt;</span><br>
+
+			OTTO Messmer and Felix The Cat. Direção: John Canemaker. Gravação de Richard W. Adams. Nova York: Milestone Film &amp; Video, 1977. VHS. Disponível em: <span onclick="window.open('https://www.youtube.com/watch?v=DJfE-31I7J8')">&lt;https://www.youtube.com/watch?v=DJfE-31I7J8&gt;</span><br>
+
+			ZINN, C. Rewind: Felix the Cat. Australian Broadcasting Corporation, 31 out. 2004. Disponível em: <span onclick="window.open('https://web.archive.org/web/20120208080454/http://www.abc.net.au/tv/rewind/txt/s1229985.htm')">&lt;https://web.archive.org/web/20120208080454/http://www.abc.net.au/tv/rewind/txt/s1229985.htm&gt;</span><br>
+
+			KNUDDE, K. Pat Sullivan. Disponível em: <span onclick="window.open('https://www.lambiek.net/artists/s/sullivan_p.htm')">&lt;https://www.lambiek.net/artists/s/sullivan_p.htm&gt;</span>. Acesso em: 12 ago. 2024.
+		</p> <hr>
+
+		<h2 name="musi" title="Formato: Artista - Música">Músicas Usadas</h2>
+
+		<p>
+			<strong>0:00</strong> Goianito - O Menino da Porteira (Instrumental)
+			<br>
+			<strong>?</strong> Super Mario World (SNES) OST - Credits Roll
+			<br>
+			<strong>?</strong> Cedric Palmer - Spindlelegs
+			<br>
+			<strong>?</strong> Alceu Valença - Anunciação (Cover da torcida do Cerro Porteño)
+			<br>
+			<strong>?</strong> TheFatRat - Xenogenesis
+			<br>
+			<strong>?</strong> 麦吉_Maggie &amp; 盖盖Nyan - Summertime
+			<br>
+			<strong>?</strong> Earthbound (SNES) OST - Buy Something Will Ya!
+		</p> <br>
+		<h3 style="color:red">O VÍDEO NÃO ESTÁ PRONTO. ESSA PÁGINA AINDA SERÁ ATUALIZADA.</h3>
+	</body>
+</html>
