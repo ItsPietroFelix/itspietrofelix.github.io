@@ -3,7 +3,3 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html
 ErrorDocument 404 /404.html
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_URI} !\/$
-RewriteCond %{REQUEST_URI} !\/[^\/]*\.[^\/]+$
-RewriteRule .* http://%{HTTP_HOST}%{REQUEST_URI}/ [L,R=301]
