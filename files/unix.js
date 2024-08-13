@@ -19,8 +19,8 @@ function timeystampey(ut, format, h12c){
   if (format == 2){
     if ( h12c == true ){
       horas = h + 'h';
-      minutos = m + 'm';
-      segundos = s + 's'; // deixa com os sinais de horas, minutos e segundos
+      minutos = m.substring(1) + 'm';
+      segundos = s.substring(1) + 's'; // deixa com os sinais de horas, minutos e segundos
     }
     else {
       horas = h + ':';
