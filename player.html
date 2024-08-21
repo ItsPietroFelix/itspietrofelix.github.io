@@ -1,22 +1,22 @@
 <html>
-  <title>TÁ DURO DORME FELIX</title>
+  <title>Player externo</title>
   <style>
     body { background-color: black; margin: 0; line-height: 1.4}
     h1,h4,h6,label { color: white; font-family: Arial; margin-left: 3vh; margin-down: 2vh }
   </style>
   <script>
     function check(){
-      let link;
+      let link, param;
       let cu = document.getElementById('video').value;
         
-      if (cu.includes("youtu.be")) { link = cu.split('youtu.be').pop() }
-      else if (cu.includes("watch?v=")) { link = cu.split('watch?v=').pop() }
+      if (cu.includes("youtu.be")) { link = cu.split('.be/').pop() }
+      else if (cu.includes("v=")) { link = cu.split('v=').pop() }
       else if (cu.includes("shorts")) { link = cu.split('/shorts/').pop() }
       else {
         return alert("pqp manda um link que funciona né caralho") 
       }
-        
-      document.getElementById('player').src = "https://www.youtube.com/embed/" + link.split('&')[0].split('?')[0] + "";
+      if(document.getElementById("loop").checked){ param = '?loop=1&playlist=' + link.split('&')[0].split('?')[0]}else{param=""}
+      document.getElementById('player').src = "https://www.youtube.com/embed/" + link.split('&')[0].split('?')[0] + param;
         
       if(document.getElementById("3").checked) {
         document.getElementById("player").width = "640";
@@ -33,8 +33,7 @@
       else if(document.getElementById("1").checked) {
         document.getElementById("player").width = "1920";
         document.getElementById("player").height = "1080";
-      }
-        document.getElementById('player').scrollIntoView();
+      } document.getElementById('player').scrollIntoView();
     }
   </script>
   <body style="background-color: #000">
@@ -48,9 +47,11 @@
     <input type="radio" name="res" id="7" value="720p">
     <label for="1080p">1080p:</label>
     <input type="radio" name="res" id="1" value="1080p">
+    <label for="loop">Loopar vídeo?</label>
+    <input type="checkbox" id="loop" name="loop" value="loop">
     <iframe width="640" height="360" id="player" src="https://www.youtube.com/embed/6FNHe3kf8_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
     <label for="video">Link do seu vídeo aqui: </label>
     <input type="text" id="video" name="video"> <button onclick="check()">:)</button>
-    <h6>versão 1.01</h6>
+    <h6>versão 1.03 - feito por itspietrofelix</h6>
   </body>
 </html>
