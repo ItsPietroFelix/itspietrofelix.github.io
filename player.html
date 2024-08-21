@@ -1,7 +1,7 @@
 <html>
   <title>Player externo</title>
   <style>
-    body { background-color: black; margin: 0; line-height: 1.4}
+    body { background-color: #111; margin: 0; line-height: 1.4}
     h1,h4,h6,label { color: white; font-family: Arial; margin-left: 3vh; margin-down: 2vh }
   </style>
   <script>
@@ -33,10 +33,14 @@
       else if(document.getElementById("1").checked) {
         document.getElementById("player").width = "1920";
         document.getElementById("player").height = "1080";
-      } document.getElementById('player').scrollIntoView();
+      }
+      else if(document.getElementById("f").checked) {
+        document.getElementById("player").width = window.innerWidth;
+        document.getElementById("player").height = window.innerHeight;
+      }document.getElementById('player').scrollIntoView();
     }
   </script>
-  <body style="background-color: #000">
+  <body>
     <h1>"to duro não mano"</h1>
     <h4>o fdp fazendo um site pra ter preview do vídeo do youtube pq o pc dele trava no site original kkkkkkk:</h4>
     <label for="360p">360p:</label>
@@ -47,6 +51,8 @@
     <input type="radio" name="res" id="7" value="720p">
     <label for="1080p">1080p:</label>
     <input type="radio" name="res" id="1" value="1080p">
+    <label for="fit">Fit:</label>
+    <input type="radio" name="res" id="f" value="fit">
     <label for="loop">Loopar vídeo?</label>
     <input type="checkbox" id="loop" name="loop" value="loop">
     <br>
