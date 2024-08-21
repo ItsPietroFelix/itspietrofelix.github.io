@@ -1,9 +1,13 @@
 <html>
   <title>Player externo</title>
+  <meta name="title" content="Player Externo do YouTube">
+<meta name="description" content="Pra você que é pobre e o pc frita pra rodar umas aba do youtube no fundo.">
+<meta name="keywords" content="player, youtube">
   <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/23ef.png">
   <style>
-    body { background-color: #111; margin: 0; line-height: 1.4}
+    body { background-color: #101; margin: 0; line-height: 1.4}
     h1,h4,h6,label { color: white; font-family: Arial; margin-left: 3vh; margin-down: 2vh }
+    #player { overflow-x: hidden; max-width: 100% }
   </style>
   <script>
     function check(){
@@ -16,6 +20,9 @@
       else {
         return alert("pqp manda um link que funciona né caralho") 
       }
+      
+      if (link.length !== 11) { return alert('Esse link do YouTube aparenta estar incompleto ou obfuscado... verifique se você o copiou corretamente!') }
+      
       if(document.getElementById("loop").checked){ param = '?loop=1&playlist=' + link.split('&')[0].split('?')[0]}else{param=""}
       document.getElementById('player').src = "https://www.youtube.com/embed/" + link.split('&')[0].split('?')[0] + param;
         
@@ -36,8 +43,8 @@
         document.getElementById("player").height = "1080";
       }
       else if(document.getElementById("f").checked) {
-        document.getElementById("player").width = window.innerWidth-10;
-        document.getElementById("player").height = window.innerHeight-10;
+        document.getElementById("player").width = (window.innerWidth * 0.99);
+        document.getElementById("player").height = window.innerHeight;
       }document.getElementById('player').scrollIntoView();
     }
   </script>
@@ -52,14 +59,14 @@
     <input type="radio" name="res" id="7" value="720p">
     <label for="1080p">1080p:</label>
     <input type="radio" name="res" id="1" value="1080p">
-    <label for="fit">Fit:</label>
-    <input type="radio" name="res" id="f" value="fit">
-    <label for="loop">Loopar vídeo?</label>
-    <input type="checkbox" id="loop" name="loop" value="loop">
+    <label for="fit" style="cursor:help;" title="Encaixa o vídeo na sua tela. Pode não funcionar bem se o formato da tela for diferente do presente no vídeo.">Fit:</label>
+    <input type="radio" name="res" id="f" value="fit" style="cursor:help;" title="Encaixa o vídeo na sua tela. Pode não funcionar bem se o formato da tela for diferente do presente no vídeo.">
+    <label for="loop" title="O loop não é perfeito. VALEU YOUTUBE">Loopar vídeo?</label>
+    <input type="checkbox" id="loop" name="loop" value="loop" title="O loop não é perfeito. VALEU YOUTUBE">
     <br>
     <iframe width="640" height="360" id="player" src="https://www.youtube.com/embed/6FNHe3kf8_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
     <label for="video">Link do seu vídeo aqui: </label>
     <input type="text" id="video" name="video"> <button onclick="check()">:)</button>
-    <h6>versão 1.03 - feito por itspietrofelix</h6>
+    <h6>versão 1.035 - feito por itspietrofelix</h6>
   </body>
 </html>
