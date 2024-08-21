@@ -1,0 +1,54 @@
+<html>
+  <style>
+    body { background-color: black; margin: 0; line-height: 1.4}
+    h1,h4,h6,label { color: white; font-family: Arial; margin-left: 3vh; margin-down: 2vh }
+  </style>
+  <script>
+    function check(){
+      let link;
+      let cu = document.getElementById('video').value;
+        
+      if (cu.includes("youtu.be")) { link = cu.split('youtu.be').pop() }
+      else if (cu.includes("watch?v=")) { link = cu.split('watch?v=').pop() }
+      else {
+        return alert("pqp manda um link que funciona né caralho") 
+      }
+        
+      document.getElementById('player').src = "https://www.youtube.com/embed/" + link.split('&')[0].split('?')[0] + "";
+        
+      if(document.getElementById("3").checked) {
+        document.getElementById("player").width = "640";
+        document.getElementById("player").height = "360";
+      }
+      else if(document.getElementById("4").checked) {
+        document.getElementById("player").width = "720";
+        document.getElementById("player").height = "480"
+      }
+      else if(document.getElementById("7").checked) {
+        document.getElementById("player").width = "1280";
+        document.getElementById("player").height = "720";
+      }
+      else if(document.getElementById("1").checked) {
+        document.getElementById("player").width = "1920";
+        document.getElementById("player").height = "1080";
+      }
+        document.getElementById('player').scrollIntoView();
+    }
+  </script>
+  <body style="background-color: #000">
+    <h1>"to duro não mano"</h1>
+    <h4>o fdp fazendo um site pra ter preview do vídeo do youtube pq o pc dele trava no site original kkkkkkk:</h4>
+    <label for="360p">360p:</label>
+    <input type="radio" name="res" id="3" value="360p" checked>
+    <label for="480p">480p:</label>
+    <input type="radio" name="res" id="4" value="480p">
+    <label for="720p">720p:</label>
+    <input type="radio" name="res" id="7" value="720p">
+    <label for="1080p">1080p:</label>
+    <input type="radio" name="res" id="1" value="1080p">
+    <iframe width="640" height="360" id="player" src="https://www.youtube.com/embed/6FNHe3kf8_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
+    <label for="video">Link do seu vídeo aqui: </label>
+    <input type="text" id="video" name="video"> <button onclick="check()">:)</button>
+    <h6>versão 1.0</h6>
+  </body>
+</html>
