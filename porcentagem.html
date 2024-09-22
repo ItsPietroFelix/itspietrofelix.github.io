@@ -2,13 +2,7 @@
 	<head>
 		<title>Porcentagem</title>
 		<style>
-			@media (prefers-color-scheme: dark){
-				body{background-color: #23272A; color: #fff}
-			}
-			@media (prefers-color-scheme: light){
-				body{background-color: #F5F5F5; color: #000}
-			}
-			body{ font-family: Segoe UI; padding: 20px} h1,h2,a { line-height: 0.5; text-decoration: none }
+			body{ font-family: Segoe UI; background-color: #23272A; color: #eee } h1,h2,a { line-height: 0.85; text-decoration: none }
 		</style>
 		<script>
 			function calcular1(){
@@ -26,15 +20,31 @@
 			result1 = Math.round((result1 + Number.EPSILON) * 100) / 100 // arredondar pra no máximo 3 casas decimais
 			document.getElementById('nope').innerHTML = pc1 + "% de <strong>" + result1 + "</strong> é " + nm1 + ".";
 			}
+            
+            function calcular3(){
+			var nm2 = document.getElementById('number2').value;
+			var nm3 = document.getElementById('number3').value; //pega os valores das caixinhas de texto
+            var result2 = (100 / nm2) * nm3; // número dividido por 100 vezes a porcentagem
+			result2 = Math.round((result2 + Number.EPSILON) * 100) / 100 // arredondar pra no máximo 3 casas decimais
+			document.getElementById('nope').innerHTML = "<strong>" + result2 + "%</strong> de " + nm2 + " é " + nm3 + ".";
+            }
+            
+            // eis aqui as contas caso você precise.
+            // z = (y / 100) * x
+            // y = (z * 100) / x
+            // x = (100 / y) * z
 		</script>
 	</head>
 	<body>
+    	<span class="test">
+        <center>
 		<h1>Eu sou tão ruim com porcentagem</h1>
 		<h2>que eu fiz um site só pra não ter que fazer de cabeça</h2>
-
-		<p>Quanto é <input type="number" id="percent" placeholder="Porcentagem" min="0" max="100">% de <input type="number" id="number" placeholder="Número" min="-9999" max="99999">? <button onclick="calcular1();">calcular</button><br>
-		<input type="number" id="percent1" placeholder="Porcentagem" min="0" max="100">% de X é <input type="number" id="number1" placeholder="Resultado" min="-9999" max="99999"> <button onclick="calcular2();">calcular</button></p>
+		<br><p><input type="number" id="percent" placeholder="X" min="-9999" max="99999">% de <input type="number" id="number" placeholder="Y" min="-9999" max="99999"> é <span id="result1">(resultado)</span>. <button onclick="calcular1();">calcular</button><br>
+		<input type="number" id="percent1" placeholder="X" min="-9999" max="99999">% de <span id="result2">(resultado)</span> é <input type="number" id="number1" placeholder="Y" min="-9999" max="99999">. <button onclick="calcular2();">calcular</button><br>
+        <span id="result3">(resultado)%</span> de <input type="number" id="number2" placeholder="X" min="-9999" max="99999"> é <input type="number" id="number3" placeholder="Y" min="-9999" max="99999">. <button onclick="calcular3();">calcular</button></p>
 		<p id="nope"></p>
-		<a href="./" style="color: #ff88ff">feito por mim :)</a>
+		<p style="color: #aaa">feito por <a href="./" style="color: #ff7fff">mim</a> :)</p>
+        </center>
 	</body>
 </html>
