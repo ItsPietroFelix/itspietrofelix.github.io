@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Listas</title>
+		<link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4f0.png">
+		<style>
+			#radio { display: flex; }
+			label { margin-right: 1vh; }
+			input { margin-right: 2vh; }
+			body { font-family: Segoe UI; background-color: #23272A; color: #eee; }
+			h1, h2, a { line-height: 0.85; text-decoration: none; }
+			textarea { outline: none; background-color: #222; border-radius: 1vh; color: #fff; }
+			textarea:focus { border-color: #888; }
+		</style>
+		<script>
+			let ass = [];
+
+			function texts(isHidden) {
+				const sc = document.getElementById('sc');
+				if (isHidden) {
+					sc.setAttribute('hidden', true);
+				} else {
+					sc.removeAttribute('hidden');
+				}
+			}
+
+			function yeah() {
+				const tea = document.getElementById('ass').value;
+				let lista = document.getElementsByName('lista');
+				if (lista[0].checked) {
+					if (tea.includes(' ')) {
+						ass = tea.split(' ');
+					} else {
+						return alert("Não tem nenhum espaço nessa lista.");
+					}
+				} else if (lista[1].checked) {
+					if (tea.includes('\n')) {
+						ass = tea.split('\n');
+					} else {
+						return alert("Não tem nenhuma quebra de linha nessa lista.");
+					}
+				} else if (lista[2].checked) {
+					if (!document.getElementById('sc').value.trim()) {
+						return alert('O campo está em branco.');
+					}
+					let sc = document.getElementById('sc').value;
+					if (tea.includes(sc)) {
+						ass = tea.split(sc);
+					} else {
+						return alert("Esta lista não possui instâncias do texto que você solicitou.");
+					}
+				}
+				document.getElementById('length').innerHTML = ass.length + " itens no total.";
+			}
+
+			function a() {
+				yeah();
+				document.getElementById('uhh').value = ass.sort().join('\n');
+			}
+
+			function b() {
+				yeah();
+				document.getElementById('uhh').value = ass.sort(() => Math.random() - 0.5).join('\n');
+			}
+
+			function c() {
+				yeah();
+				alert(ass[Math.floor(Math.random() * ass.length)]);
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Listas</h1>
+		<textarea id="ass" rows="5" cols="70" placeholder="Entrada."></textarea><br>
+		<div id="radio">
+			<label for="opcao1">Separar itens por espaço</label>
+			<input type="radio" name="lista" value="opcao1" checked onclick="texts(true)">
+			<label for="opcao2">Separar itens por linhas</label>
+			<input type="radio" name="lista" value="opcao2" onclick="texts(true)">
+			<label for="opcao3">Separar itens por texto</label>
+			<input type="radio" name="lista" value="opcao3" onclick="texts(false)">
+		</div>
+		<input type="text" name="texto" id="sc" placeholder="Texto." hidden>
+		<br>
+		<button onclick="a()">Ordem alfabética</button>
+		<button onclick="b()">Embaralhar lista</button>
+		<button onclick="c()">Pegar item aleatório</button><br>
+		<textarea readonly id="uhh" rows="5" cols="70" placeholder="Saída."></textarea>
+		<p id="length"></p>
+	</body>
+</html>
