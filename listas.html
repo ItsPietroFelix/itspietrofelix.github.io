@@ -50,7 +50,9 @@
 						return alert("Esta lista não possui instâncias do texto que você solicitou.");
 					}
 				}
-				document.getElementById('length').innerHTML = ass.length + " itens no total.";
+				setTimeout(() => {
+					document.getElementById('length').innerHTML = document.getElementById('uhh').value.split('\n').length + " itens no total.";
+				}, 0);
 			}
 
 			function a() {
@@ -62,10 +64,29 @@
 				yeah();
 				document.getElementById('uhh').value = ass.sort(() => Math.random() - 0.5).join('\n');
 			}
-
+			
 			function c() {
 				yeah();
+				document.getElementById('uhh').value = ass.sort((a, b) => a.length - b.length).join('\n');
+			}
+            
+			function d() {
+				yeah();
 				alert(ass[Math.floor(Math.random() * ass.length)]);
+			}
+
+			function e() {
+				yeah();
+				document.getElementById('uhh').value = ass.reverse().join('\n');
+			}
+
+			function f() {
+				yeah();
+				document.getElementById('uhh').value = [...new Set(ass)].join('\n');
+			}
+            
+			function move() {
+				document.getElementById('ass').value = document.getElementById('uhh').value;
 			}
 		</script>
 	</head>
@@ -82,10 +103,14 @@
 		</div>
 		<input type="text" name="texto" id="sc" placeholder="Texto." hidden>
 		<br>
+		<button onclick="e()">Inverter ordem</button>
 		<button onclick="a()">Ordem alfabética</button>
+		<button onclick="c()">Ordem de tamanho</button>
 		<button onclick="b()">Embaralhar lista</button>
-		<button onclick="c()">Pegar item aleatório</button><br>
+		<button onclick="f()">Remover itens repetidos</button>
+		<button onclick="d()">Pegar item aleatório</button><br>
 		<textarea readonly id="uhh" rows="5" cols="70" placeholder="Saída."></textarea>
+		<button onclick="move()">Mover lista de saída para a entrada</button>
 		<p id="length"></p>
 	</body>
 </html>
