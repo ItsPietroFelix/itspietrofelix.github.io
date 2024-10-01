@@ -1,27 +1,60 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>ferramentas</title>
-		<link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f527.png">
-		<style>
-			body {
-				font-family: Segoe UI;
-				background-color: #23272A;
-				color: #eee;
-			}
-			h1, h2, a {
-				line-height: 1.35;
-				text-decoration: none;
-			}
-			a:hover {
-				opacity: 80%;
-			}
-		</style>
-	</head>
-	<body>
-		<h1>ferramentas fuleiras</h1>
-		<h3>Só pra eu não ter que ir em outros sites pra achar estas coisas.</h3>
-		<a href="./player">Um player externo do YouTube</a><br>
-		<a href="./porcentagem">Calculadora de porcentagem</a><br>
-		<a href="./listas">Embaralhar e/ou Organizar listas</a>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <title>Ferramentas</title>
+    <meta property="og:title" content="Ferramentas">
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f527.png">
+    <style>
+        body {
+            font-family: Segoe UI;
+            background-color: #23272A;
+            color: #eee;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 2vh;
+            padding-right: 2vh;
+        }
+
+        h1, h4, a {
+            user-select: none;
+            line-height: 0.85;
+            text-decoration: none;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        a, a:visited {
+            color: #7289da;
+            font-size: 3.5vh
+        }
+
+        .click img {
+            display: inline-flex;
+            margin-right: 1vh;
+            width: 3.5vh;
+            height: 3.5vh;
+        }
+
+        a:hover {
+            opacity: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div class="all-container" style="text-align: center;">
+        <h1>Ferramentas</h1>
+        <h4>Essas ferramentas só existem pra eu não ir em outros sites.</h4>
+        <div class="click">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/23ef.png">
+            <a href="./ferramentas/player">Um player externo do YouTube</a><br>
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/2797.png">
+            <a href="./ferramentas/porcentagem">Calculadora de porcentagem</a><br>
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4f0.png">
+            <a href="./ferramentas/listas">Embaralhar e/ou Organizar listas</a>
+        </div>
+    </div>
+</body>
 </html>
