@@ -1,10 +1,89 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<style>.oops{display: flex; position: absolute; top: 50%; transform: translate(-50%, -50%); left: 50%; font-family: Arial}</style>
-	</head>
-	<body>
-		<div class="oops">
-			Under construction
-		</div>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <title>ItsPietroFelix</title>
+    <meta property="og:title" content="ItsPietroFelix">
+    <link rel="icon" type="image/png" href="./files/icon.png">
+    <script>
+        function random(roll) {
+            let frases = [
+                "De patifaria em patifaria, o mundo ficará mais pixuruco.",
+                "Esse mundo tá perdido, e eu não sou um mapa.",
+                "Inovando diariamente na área de procrastinação.",
+                "Entre calhordas e canalhas, eu sou o mais palerma.",
+                "Agora com 15% mais pulgas!",
+                "Estabanado às terças. Às vezes nos outros dias também.",
+                "Conhecimento extenso sobre coisas que você não se importa.",
+                "Eu não sou muito inteligente. Mas sei fritar um ovo. UM. ovo."
+            ];
+            let ipf = ["≡ItsPietroFelix", "≡IPF"];
+
+            if (roll >= 1) {
+                document.getElementById('frase').innerHTML = frases[Math.floor(Math.random() * frases.length)];
+            }
+            if (roll == 2) {
+                document.getElementById('ipf').innerHTML = ipf[Math.floor(Math.random() * ipf.length)];
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: Segoe UI;
+            background-color: #23272A;
+            color: #eee;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1, h4, a {
+            user-select: none;
+            line-height: 0.85;
+            text-decoration: none;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #frase {
+            cursor: pointer;
+        }
+
+        a, a:visited {
+            color: #7289da;
+            font-size: 3.5vh
+        }
+
+        .click img {
+            display: inline-flex;
+            margin-right: 1vh;
+            width: 3.5vh;
+            height: 3.5vh;
+        }
+
+        a:hover, #frase:hover {
+            opacity: 80%;
+        }
+    </style>
+</head>
+<body onLoad="random(2)">
+    <div class="all-container" style="text-align: center;">
+        <h1 id="ipf">≡</h1>
+        <h4 id="frase" onclick="random(1)">De patifaria em patifaria, o mundo ficará mais pixuruco.</h3>
+        <div class="click">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3ac.png">
+            <a href="./videos">Vídeos</a>
+            <br>
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f527.png">
+            <a href="./ferramentas">Ferramentas toscas</a>
+            <br>
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f5d1.png">
+            <a href="./misc">Páginas aleatórias</a>
+            <br>
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f517.png">
+            <a href="https://itspietrofelix.carrd.co" target="_blank" title="Esse link irá abrir numa aba externa.">Links!</a>
+        </div>
+    </div>
+</body>
 </html>
