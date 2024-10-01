@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta property="og:title" content="Palavreado">
         <title>Palavreado</title>
-        <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4da.png">
+        <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f5e3-fe0f.png">
         <style>
             html {
                 font-family: Arial;
@@ -10,21 +12,47 @@
                 background: linear-gradient(180deg, rgba(35,39,42,1) 0%, rgba(18,20,21,1) 100%);
             }
 
-            #palavreado { font-family: Segoe UI }
-            .last, .header { line-height: 1 }
-            .shorterlineheightimtoolazylahblahwaitwhyamitypinginenglishthispageisinportuguesewtf { line-height: 0.1 }
+            #palavreado { 
+                font-family: Segoe UI; 
+                display: flex; 
+                flex-wrap: wrap; 
+                gap: 0; 
+                background: rgb(44,47,51); 
+                border-radius: 3vh; 
+                justify-content: center;
+                padding: 0; 
+                margin: 3vh;
+            }
 
-            u { opacity: 0.8 }
+            .last, .header { 
+                line-height: 1; 
+            }
+
+            .shorterlineheightimtoolazylahblahwaitwhyamitypinginenglishthispageisinportuguesewtf { 
+                line-height: 0.1; 
+            }
+
+            u { 
+                opacity: 0.8; 
+            }
+
             ul {
-                padding: 20px;
-                list-style-position: inside
-            } 
+                list-style-position: inside;
+                padding: 0;
+                margin: 0;
+                text-align: left;
+            }
+
             ul li {
-                background: rgb(44,47,51);
                 color: white;
                 padding: 5px;
-                margin-left: 30px;
-                margin-right: 30px
+                margin: 0;
+            }
+
+            ul li:hover {     
+                color: #fff77f;
+                cursor: pointer;
+                transition: all 0.35s ease-in-out;
             }
 
             button {
@@ -35,12 +63,13 @@
                 font-size: 100%;
                 color: white;
                 border: 2px solid white;
-                border-radius: 12px
+                border-radius: 12px;
             } 
+            
             button:hover {
                 background-color: #99aab5;
                 border: 2px solid #99aab5;
-                color: black
+                color: black;
             }
 
             .fuleiro {
@@ -58,6 +87,7 @@
                 border-top: 7px dashed #4e5d94;
                 border-bottom: 7px dashed #4e5d94;
             }
+
             .fuleiro:target {
                 visibility: visible;
                 opacity: 1;
@@ -91,7 +121,7 @@
             }
 
             .fechar-popup:hover {
-              color: #161cbc;
+                color: #161cbc;
             }
 
             .abobrinhas {
@@ -102,7 +132,7 @@
             }
 
             @media screen and (max-width: 700px){
-                .cont-popup{
+                .cont-popup {
                     width: 70%;
                 }
             }
@@ -111,47 +141,59 @@
                 color: #EEE;
                 cursor: help;
             }
-            #pq:hover{
-                color: #DDD
+
+            #pq:hover {
+                color: #DDD;
             }
 
-            #chroma{
-                animation: rainbow 2.5s infinite;
+            #chroma {
+                color: #ff7fff;
+                text-shadow: 01px 0px 4px rgba(0, 0, 0, 0.5);
             }
-            @keyframes rainbow {
-                0% { color: #ff0000; }
-                10% { color: #ff6600; }
-                20% { color: #ffff00; }
-                30% { color: #66FF00; }
-                40% { color: #00ff00; }
-                50% { color: #00ffff; }
-                60% { color: #0000ff; }
-                70% { color: #6666FF; }
-                80% { color: #6600ff; }
-                90% { color: #6600ff; }
-                100% { color: #ff00ff; }
-            }
-            </style>
+        </style>
         <script type="text/javascript" src="../files/unix.js"></script>
         <script>
+            setTimeout(function() {
+                const PUL = document.getElementById('palavreco');
+                const PIL = PUL.getElementsByTagName('li');
+                for (let i = 0; i < PIL.length; i++) {
+                    PIL[i].addEventListener('click', function() {
+                        if (this.textContent === 'pixurucar') {
+                            window.open('./pixurucar', '_blank');
+                        } else {
+                            window.open('https://www.dicio.com.br/' + this.textContent + '/', '_blank');
+                        }
+                    });
+                }
+            }, 1000);
+
             let arrayPoucoFuleiro;
-            function garrafa(){
-                timeystampey(1719430159, 1, true);
+
+            function garrafa() {
+                timeystampey(1727820000, 1, true);
                 let adjetivos = ['fuleira', 'tosca', 'capenga', 'canalha', 'mequetrefe', 'chinfrin', 'esdrúxula'];
-                arrayPoucoFuleiro = ['cafajeste', 'meliante', 'batuta', 'fagulha', 'entulho', 'desleixo', 'xexelento', 'tosquice', 'malandragem', 'palerma', 'sabugar', 'comichão', 'picante', 'fiasco', 'estabanado', 'saculejar', 'marra', 'escarrar', 'parlapatão', 'sabichão', 'estapafúrdio', 'fuleiro', 'pixurucar', 'boboca', 'miserável', 'formidável', 'marola', 'calhorda', 'porre', 'catimba', 'esdrúxulo', 'esculacho', 'tiração', 'trambique', 'lambisgoia', 'leproso', 'chinfrim', 'trabuco', 'tripa', 'supimpa', 'maldito', 'canalha', 'trela', 'desconjuntura', 'hipérbole', 'devaneio', 'carniça', 'capenga', 'patifaria', 'caricato', 'vergalhão', 'energúmeno', 'fracassado', 'chocho', 'joça', 'ceroula', 'bulhufas', 'carácolis', 'desbaratinar', 'melindroso', 'frangalho', 'patuscada', 'aloprar', 'treco', 'rapariga', 'ladainha', 'escalafobético', 'lazarento', 'buçanha', 'ximbica', 'pururuca', 'inadimplência', 'biscate', 'pança', 'ludibriar', 'bonachão', 'impertinente', 'pachorra', 'bocó', 'falácia', 'dissertação', 'escrachar', 'metediço', 'ferrenho', 'caipira', 'morfético', 'azucrinar', 'perneta', 'cacilda', 'panaca', 'tribufu', 'faniquito', 'folia', 'caô', 'maçante', 'tolice', 'acéfalo', 'alastro', 'coisado', 'capacho', 'sarmoura', 'balbúrdia', 'estrupício', 'enfadonho', 'calhambeque', 'saçaricar', 'espelunca', 'pocar', 'parafernália', 'sujismundo', 'chucro', 'cabaço', 'tchola', 'draga', 'desserviço', 'barbaridade', 'chulo', 'lamecha', 'caçamba', 'pisa', 'paspalho', 'xurumela', 'mangalho', 'mequetrefe', 'tralha', 'pereba', 'esbugalhar', 'urucubaca', 'mondrongo', 'calombo', 'asno', 'putrefato', 'pigarro', 'fétido', 'carranca', 'asco', 'sórdido', 'repugnante', 'tenência', 'ostracismo', 'encardido', 'perrengue', 'encosto', 'bisbilhotar', 'bugiganga', 'birosca', 'pindaíba', 'serelepe', 'geringonça', 'rebimboca', 'gororoba', 'pocilga', 'arapuca', 'muquifo', 'piripaque', 'jiripoca', 'pimpolho', 'maciota', 'maracutaia', 'macumba', 'diabrura', 'travesso', 'chapisco', 'quinquilharia', 'lapada', 'bodega', 'fajuto', 'entorpecente', 'esporro', 'firula', 'pilantra', 'torpe', 'esculhambar', 'siricutico', 'peripécia'];
-                let adjetivoAleatorio = adjetivos[Math.floor(Math.random()*adjetivos.length)];
+                arrayPoucoFuleiro = ['cafajeste', 'meliante', 'batuta', 'fagulha', 'entulho', 'desleixo', 'xexelento', 'tosquice', 'malandragem', 'palerma', 'sabugar', 'comichão', 'picante', 'fiasco', 'estabanado', 'saculejar', 'marra', 'escarrar', 'parlapatão', 'sabichão', 'estapafúrdio', 'fuleiro', 'pixurucar', 'boboca', 'miserável', 'formidável', 'marola', 'calhorda', 'porre', 'catimba', 'esdrúxulo', 'esculacho', 'tiração', 'trambique', 'lambisgoia', 'leproso', 'chinfrim', 'trabuco', 'tripa', 'supimpa', 'maldito', 'canalha', 'trela', 'desconjuntura', 'hipérbole', 'devaneio', 'carniça', 'capenga', 'patifaria', 'caricato', 'vergalhão', 'energúmeno', 'fracassado', 'chocho', 'joça', 'ceroula', 'bulhufas', 'carácolis', 'desbaratinar', 'melindroso', 'frangalho', 'patuscada', 'aloprar', 'treco', 'rapariga', 'ladainha', 'escalafobético', 'lazarento', 'buçanha', 'ximbica', 'pururuca', 'inadimplência', 'biscate', 'pança', 'ludibriar', 'bonachão', 'impertinente', 'pachorra', 'bocó', 'falácia', 'dissertação', 'escrachar', 'metediço', 'ferrenho', 'caipira', 'morfético', 'azucrinar', 'perneta', 'cacilda', 'panaca', 'tribufu', 'faniquito', 'folia', 'caô', 'maçante', 'tolice', 'acéfalo', 'alastro', 'coisado', 'capacho', 'sarmoura', 'balbúrdia', 'estrupício', 'enfadonho', 'calhambeque', 'saçaricar', 'espelunca', 'pocar', 'parafernália', 'sujismundo', 'chucro', 'cabaço', 'tchola', 'draga', 'desserviço', 'barbaridade', 'chulo', 'lamecha', 'caçamba', 'pisa', 'paspalho', 'xurumela', 'mangalho', 'mequetrefe', 'tralha', 'pereba', 'esbugalhar', 'urucubaca', 'mondrongo', 'calombo', 'asno', 'putrefato', 'pigarro', 'fétido', 'carranca', 'asco', 'sórdido', 'repugnante', 'tenência', 'ostracismo', 'encardido', 'perrengue', 'encosto', 'bisbilhotar', 'bugiganga', 'birosca', 'pindaíba', 'serelepe', 'geringonça', 'rebimboca', 'gororoba', 'pocilga', 'arapuca', 'muquifo', 'piripaque', 'jiripoca', 'pimpolho', 'maciota', 'maracutaia', 'macumba', 'diabrura', 'travesso', 'chapisco', 'quinquilharia', 'lapada', 'bodega', 'fajuto', 'entorpecente', 'esporro', 'firula', 'pilantra', 'torpe', 'esculhambar', 'siricutico', 'peripécia', 'mané', 'fraudulento', 'pirraça', 'pirralho', 'trambolho', 'raclaclá', 'maçaroca', 'maltrapilho', 'charlatão', 'zarolho', 'caboclo', 'tapado', 'fungada', 'imundície', 'talarico'];
+                let adjetivoAleatorio = adjetivos[Math.floor(Math.random() * adjetivos.length)];
                 document.getElementById("counter").innerHTML = 'Com ' + arrayPoucoFuleiro.length + ' palavras ' + adjetivoAleatorio + 's no total!';
                 let fuleirarArray = arrayPoucoFuleiro.sort((a, b) => 0.5 - Math.random());
                 var UL = document.createElement('ul');
-                for(var i = 0; i < fuleirarArray.length; i++) {
+                UL.id = 'palavreco';
+                for (var i = 0; i < fuleirarArray.length; i++) {
                     var LI = document.createElement('li');
                     LI.appendChild(document.createTextNode(fuleirarArray[i]));
                     UL.appendChild(LI);
                 }
                 return document.getElementById('palavreado').appendChild(UL);
             }
-            function monitor(){
-                alert(arrayPoucoFuleiro[Math.floor(Math.random()*arrayPoucoFuleiro.length)])
+
+            function monitor() {
+                alert(arrayPoucoFuleiro[Math.floor(Math.random() * arrayPoucoFuleiro.length)]);
+            }
+
+            function reshuffle() {
+                const palavrecasso = document.getElementById('palavreco');
+                const palavrequinhos = Array.from(palavrecasso.children);
+                palavrequinhos.sort(() => Math.random() - 0.5).forEach(item => palavrecasso.appendChild(item));
             }
         </script>
     </head>
@@ -173,20 +215,13 @@
                 <h3 id="counter">Com mais de 100 palavras no total!</h3>
                 <div class="shorterlineheightimtoolazylahblahwaitwhyamitypinginenglishthispageisinportuguesewtf">
                     <button title="Clique aqui para gerar uma palavra aleatória da lista!" onclick="monitor()">Gerar palavreado aleatório</button>
+                    <button title="Embaralha a lista mais uma vez!" onclick="reshuffle()">Embaralhar a lista</button>
                     <h4 id="pq" onclick="location.href='#pop-up'"><i>Por que essa lista existe?</i></h4>
                 </div>
             </div>
         </center>
         <div id="palavreado">
         </div>
-        <center><h2>sufixos (extra)</h2></center>
-        <ul>
-            <li>-oide</li>
-            <li>-ículo(a) / -úculo(a)</li>
-            <li>-ice / -isse</li>
-            <li>-agem</li>
-            <li>-ralha / -nalha</li>
-        </ul>
         <div class="last">
             <p>Atualizado pela última vez em:</p>
             <i id="lastupdated">Carregando...</i>
