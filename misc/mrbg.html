@@ -1,46 +1,74 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta property="og:title" content="MRBG Timer">
-        <title>MRBG Timer</title>
-        <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1050057846638788708/1280219675011055697/redball4alt.png?ex=670221bb&is=6700d03b&hm=19d2eac15f39a1d65c7a69c9fb54bc8332a95d049bbce85a6f748e93e19e371b&">
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
-            body{
+<!--
+        pwease dont mock me
+        i suck at javascript :(
+        -felix (version 0.27)
+        -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="MRBG Timer">
+    <title>MRBG Timer</title>
+    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1050057846638788708/1280219675011055697/redball4alt.png?ex=670221bb&is=6700d03b&hm=19d2eac15f39a1d65c7a69c9fb54bc8332a95d049bbce85a6f748e93e19e371b&">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+        body {
             font-family: 'Comfortaa';
             user-select: none;
             font-weight: 600;
-            background-color: rgb(29,29,29);
+            background-color: rgb(29, 29, 29);
             color: #eee;
-            }
-            input[type="radio"]{margin-right: 10px }
-            input[type="radio"]:checked { accent-color: #ff7fff}
-            input[type="text"] { outline: none; background-color: #444; border-radius: 1vh; color: #fff; }
-            input[type="text"]:focus { border-color: #888; }
-            input[type="checkbox"]:checked {
+        }
+
+        input[type="radio"] {
+            margin-right: 10px
+        }
+
+        input[type="radio"]:checked {
+            accent-color: #ff7fff
+        }
+
+        input[type="text"] {
+            outline: none;
+            background-color: #444;
+            border-radius: 1vh;
+            color: #fff;
+        }
+
+        input[type="text"]:focus {
+            border-color: #888;
+        }
+
+        input[type="checkbox"]:checked {
             accent-color: #ff7fff;
-            }
-            table {
-            border: 1px solid #ccc;
-            table-layout: fixed;
+        }
+
+        table {
+            border: 1px solid #ddd;
             border-collapse: collapse;
             border-spacing: 1px;
-            text-align: left; width: 100%; height: 100%
-            }
-            th {
-            border: 1px solid #ccc;
+            text-align: left;
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        th {
+            border: 1px solid #ddd;
             background-color: #ddd;
             color: #444;
-            padding: 5px;
-            }
-            td {
-            border: 1px solid #ccc;
+            padding: 7px;
+        }
+
+        td {
+            border: 1px solid #ddd;
             background-color: #444;
             color: #fff;
-            padding: 5px;
-            }
-            button {
+            padding: 7px;
+        }
+
+        button {
             transition-duration: 0.4s;
             background-color: #444;
             cursor: pointer;
@@ -51,345 +79,495 @@
             border-radius: 12px;
             font-family: 'Comfortaa';
             font-weight: 600;
-            } 
-            button:hover {
+        }
+
+        button:hover {
             background-color: #555;
             border: 1px solid #aaa;
             color: #ff7fff;
-            }
-            .timers label {
+        }
+
+        .timers label {
             margin-left: 10px;
+        }
+
+        .hideyhidey td:nth-child(4),
+        .hideyhidey th:nth-child(4) {
+            display: none;
+        }
+    </style>
+    <script>
+        let [totalMillis, r, r1, r2, rab1, rab2, rab3, r3, r4v1, r4v2, r4v3, r4m, r5, thefuckingarray, deltaquestionmark] = '';
+        let cleanfuckingarray = ['', '', '', '', '', '', '', '', '', '', ''];
+        let comparisonTimes, resetCount = 0;
+        let comparisonARRAYYEAH1, comparisonARRAYYEAH2 = 0;
+        let numbah = 0;
+        function TTM(time) {
+            if (!time || time.trim() === '') {
+                return 0;
             }
-        </style>
-        <script>
-            function loop() {
-                let [rb1, rb2, rabb1, rabb2, rabb3, rb3, rb4v1, rb4v2, rb4v3, rb4m, rb5] = 
-                ['rb1', 'rb2', 'rabb1', 'rabb2', 'rabb3', 'rb3', 'rb4v1', 'rb4v2', 'rb4v3', 'rb4m', 'rb5']
-                .map(id => document.getElementById(id).value);
-                let r = document.querySelectorAll('table tbody tr');
+        
+            var parts = time.split(':');
+            if (parts.length !== 2) {
+                return 0;
+            }
+        
+            var minutes = parseInt(parts[0], 10);
+            var secParts = parts[1].split('.');
+            var seconds = parseInt(secParts[0], 10);
+            var millis = secParts.length === 2 ? secParts[1].slice(0, 3).padEnd(3, '0') : '000';
+            millis = parseInt(millis, 10);
+            return (minutes * 60 * 1000) + (seconds * 1000) + millis;
+        }
+        
+        
+        function MTT(millis, rest) {
+            let lilthing = '';
+            if(rest == true && millis < 0){
+                lilthing = '-'
+            } else if (rest == true && millis > 0) { lilthing = '+' }
+            else if (millis === null || millis === undefined || isNaN(millis)) {millis = 0}
+
+            millis = Math.abs(millis);
+            var totalSeconds = Math.floor(millis / 1000);
+            var minutes = Math.floor(totalSeconds / 60);
+            var seconds = totalSeconds % 60;
+            var milliseconds = millis % 1000;
+        
+            minutes = minutes.toString().padStart(2, '0');
+            seconds = seconds.toString().padStart(2, '0');
+            milliseconds = milliseconds.toString().padStart(3, '0');
+        
+            return lilthing + minutes + ':' + seconds + '.' + milliseconds;
+        }
+
+        function loop() {
+            r = document.querySelectorAll('table tbody tr');
+        
+            let [rb1, rb2, rabb1, rabb2, rabb3, rb3, rb4v1, rb4v2, rb4v3, rb4m, rb5] = 
+            ['rb1', 'rb2', 'rabb1', 'rabb2', 'rabb3', 'rb3', 'rb4v1', 'rb4v2', 'rb4v3', 'rb4m', 'rb5']
+            .map(id => document.getElementById(id).value);
+        
+            let names = ['RB1', 'RB2', 'RABB1', 'RABB2', 'RABB3', 'RB3', 'RB4v1', 'RB4v2', 'RB4v3', 'RB4M', 'RB5', 'Red Ball', 'Red Ball 2', 'Red and Blue Balls', 'Red and Blue Balls 2', 'Red and Blue Balls 3', 'Red Ball 3', 'Red Ball 4 Vol. 1', 'Red Ball 4 Vol. 2', 'Red Ball 4 Vol. 3', 'Red Ball 4 (Mobile)', 'Red Ball 5'];
+        
+            numbah = [TTM(rb1), TTM(rb2), TTM(rabb1), TTM(rabb2), TTM(rabb3), TTM(rb3), TTM(rb4v1), TTM(rb4v2), TTM(rb4v3), TTM(rb4m), TTM(rb5)];
+        
+            r[0].cells[1].textContent = MTT(numbah[0]);
+            r[0].cells[2].textContent = MTT(numbah[0]);
+            r[1].cells[1].textContent = MTT(numbah[0] + numbah[1]);
+            r[1].cells[2].textContent = MTT(numbah[1]);
+            r[2].cells[1].textContent = cleanfuckingarray[2];
+            r[2].cells[2].textContent = MTT(numbah[2]);
+            r[3].cells[1].textContent = cleanfuckingarray[3];
+            r[3].cells[2].textContent = MTT(numbah[3]);
+            r[4].cells[1].textContent = cleanfuckingarray[4];
+            r[4].cells[2].textContent = MTT(numbah[4]);
+            r[5].cells[1].textContent = cleanfuckingarray[5];
+            r[5].cells[2].textContent = MTT(numbah[5]);
+            r[6].cells[1].textContent = cleanfuckingarray[6];
+            r[6].cells[2].textContent = MTT(numbah[6]);
+            r[7].cells[1].textContent = cleanfuckingarray[7];
+            r[7].cells[2].textContent = MTT(numbah[7]);
+            r[8].cells[1].textContent = cleanfuckingarray[8];
+            r[8].cells[2].textContent = MTT(numbah[8]);
+            r[9].cells[1].textContent = MTT(numbah.reduce((ac, cur) => ac + cur, 0) - numbah[10]);
+            r[9].cells[2].textContent = MTT(numbah[9]);
+            r[10].cells[1].textContent = cleanfuckingarray[10];
+            r[10].cells[2].textContent = MTT(numbah[10]);
+        
+            function bruh(){
+                r.forEach(function (item) {
+                    item.hidden = false;
+                });
+            }
+            function bruhnt(){
+                r.forEach(function (item) {
+                    item.hidden = true;
+                });
+            }
             
-            
-                function TTM(time) {
-                if (!time || time.trim() === '') {
-                        return 0;
-                    }
-                    var parts = time.split(':');
-                    if (parts.length !== 2 || parts[1].split('.').length !== 2) {
-                        return 0;
-                    }
-                    var parts = time.split(':');
-                    var minutes = parseInt(parts[0], 10);
-                    var secParts = parts[1].split('.');
-                    var seconds = parseInt(secParts[0], 10);
-                    var millis = parseInt(secParts[1], 10);
-            
-                    return (minutes * 60 * 1000) + (seconds * 1000) + millis;
-                }
-            
-                function MTT(millis) {
-                    var totalSeconds = Math.floor(millis / 1000);
-                    var minutes = Math.floor(totalSeconds / 60);
-                    var seconds = totalSeconds % 60;
-                    var milliseconds = millis % 1000;
-            
-                    minutes = minutes.toString().padStart(2, '0');
-                    seconds = seconds.toString().padStart(2, '0');
-                    milliseconds = milliseconds.toString().padStart(3, '0');
-            
-                    return minutes + ':' + seconds + '.' + milliseconds;
-                }
-            
-                let [totalMillis, r1, r2, rab1, rab2, rab3, r3, r4v1, r4v2, r4v3, r4m, r5] = '';
-            
-                let numbah = [TTM(rb1), TTM(rb2), TTM(rabb1), TTM(rabb2), TTM(rabb3), TTM(rb3), TTM(rb4v1), TTM(rb4v2), TTM(rb4v3), TTM(rb4m), TTM(rb5)];
-            
-                r[0].cells[1].textContent = MTT(numbah[0]);
-                r[0].cells[2].textContent = MTT(numbah[0]);
-                r[1].cells[1].textContent = MTT(numbah[0] + numbah[1]);
-                r[1].cells[2].textContent = MTT(numbah[1]);
-                r[2].cells[2].textContent = MTT(numbah[2]);
-                r[3].cells[2].textContent = MTT(numbah[3]);
-                r[4].cells[2].textContent = MTT(numbah[4]);
-                r[5].cells[2].textContent = MTT(numbah[5]);
-                r[6].cells[2].textContent = MTT(numbah[6]);
-                r[7].cells[2].textContent = MTT(numbah[7]);
-                r[8].cells[2].textContent = MTT(numbah[8]);
-                r[9].cells[1].textContent = MTT(numbah.reduce((ac, cur) => ac + cur, 0) - numbah[10]);
-                r[9].cells[2].textContent = MTT(numbah[9]);
-                r[10].cells[2].textContent = MTT(numbah[10]);
-            
-                function bruh(){
-                    r.forEach(function (item) {
-                        item.hidden = false;
-                    });
-                }
-                function bruhnt(){
-                    r.forEach(function (item) {
-                        item.hidden = true;
-                    });
-                }
-            
-                if (document.getElementById("fs").checked) {
-                    document.querySelectorAll(".timers label, .timers input, .timers br").forEach(function (yeornay) {
-                        if (!yeornay.classList.contains('fs')) {
-                            bruh();
-                            r[2].hidden = true;
-                            r[3].hidden = true;
-                            r[4].hidden = true;
-                            r[9].hidden = true;
-                            r[10].hidden = true;
-                            yeornay.style.display = 'none';
-                        } else {
-                            bruh();
-                            yeornay.style.display = 'initial';
-                        }
-                    });
-                    r[5].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[5]);
-                    r[6].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[5] + numbah[6]);
-                    r[7].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[5] + numbah[6] + numbah[7]);
-                    r[8].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[5] + numbah[6] + numbah[7] + numbah[8]);
-                    totalMillis = numbah[0] + numbah[1] + numbah[5] + numbah[6] + numbah[7] + numbah[8];
-                } else if (document.getElementById("afg").checked) {
-            
+            if (document.getElementById("fs").checked) {
                 document.querySelectorAll(".timers label, .timers input, .timers br").forEach(function (yeornay) {
-            
-                    if (!yeornay.classList.contains("afg")) {
-                        bruh(); 
+                    if (!yeornay.classList.contains('fs')) {
+                        bruh();
+                        r[2].hidden = true;
+                        r[3].hidden = true;
+                        r[4].hidden = true;
                         r[9].hidden = true;
+                        r[10].hidden = true;
                         yeornay.style.display = 'none';
                     } else {
+                        bruh();
                         yeornay.style.display = 'initial';
                     }
                 });
-                    r[2].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2]);
-                    r[3].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3]);
-                    r[4].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4]);
-                    r[5].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5]);
-                    r[6].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6]);
-                    r[7].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6] + numbah[7]);
-                    r[8].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6] + numbah[7] + numbah[8]);
-                    r[10].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6] + numbah[7] + numbah[8] + numbah[10]);
-                    totalMillis = numbah.reduce((ac, cur) => ac + cur, 0) - TTM(rb4m);
-                } else if (document.getElementById("es").checked) {
-                    document.querySelectorAll(".timers label, .timers input, .timers br").forEach(function (yeornay) {
-                        if (!yeornay.classList.contains('es')) {
-                            bruh();
-                            yeornay.style.display = 'none';
-                        } else {
-                            bruh();
-                            yeornay.style.display = 'initial';
-                        }
-                    });
-                    r[2].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2]);
-                    r[3].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3]);
-                    r[4].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4]);
-                    r[5].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5]);
-                    r[6].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6]);
-                    r[7].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6] + numbah[7]);
-                    r[8].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6] + numbah[7] + numbah[8]);
-                    r[9].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6] + numbah[7] + numbah[8] + numbah[9]);
-                    totalMillis = numbah.reduce((ac, cur) => ac + cur, 0);
-                    r[10].cells[1].textContent = MTT(totalMillis);
-                } else if (document.getElementById("rb13").checked) {
-                    document.querySelectorAll(".timers label, .timers input, .timers br").forEach(function (yeornay) {
-                        if (!yeornay.classList.contains('rb13')) {
-                            bruhnt();
-                            r[0].hidden = false;
-                            r[1].hidden = false;
-                            r[5].hidden = false;
-                            yeornay.style.display = 'none';
-                        } else {
-                            bruh();
-                            yeornay.style.display = 'initial'
-                        }
-                    });
-                    r[5].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[5]);
-                    totalMillis = numbah[0] + numbah[1] + numbah[5];
-                } else if (document.getElementById("rb4").checked) {
-                    document.querySelectorAll(".timers label, .timers input, .timers br").forEach(function (yeornay) {
-                        if (!yeornay.classList.contains('rb4')) {
-                            bruhnt();
-                            r[6].hidden = false;
-                            r[7].hidden = false;
-                            r[8].hidden = false;
-                            yeornay.style.display = 'none';
-                        } else {
-                            bruh();
-                            yeornay.style.display = 'initial'
-                        }
-                    });
-                    r[6].cells[1].textContent = MTT(numbah[6]);
-                    r[7].cells[1].textContent = MTT(numbah[6] + numbah[7]);
-                    r[8].cells[1].textContent = MTT(numbah[6] + numbah[7] + numbah[8]);
-                    totalMillis = numbah[6] + numbah[7] + numbah[8];
-                } else if (document.getElementById("rabb").checked) {
-                    document.querySelectorAll(".timers label, .timers input, .timers br").forEach(function (yeornay) {
-                        if (!yeornay.classList.contains('rabb')) {
-                            bruhnt();
-                            r[2].hidden = false;
-                            r[3].hidden = false;
-                            r[4].hidden = false;
-                            yeornay.style.display = 'none';
-                        } else {
-                            bruh();
-                            yeornay.style.display = 'initial'
-                        }
-                    });
-                    r[2].cells[1].textContent = MTT(numbah[2]);
-                    r[3].cells[1].textContent = MTT(numbah[2] + numbah[3]);
-                    r[4].cells[1].textContent = MTT(numbah[2] + numbah[3] + numbah[4]);
-                    totalMillis = numbah[2] + numbah[3] + numbah[4];
-                } else if (document.getElementById("tf").checked) {
-                    document.querySelectorAll(".timers label, .timers input, .timers br").forEach(function (yeornay) {
-                        if (!yeornay.classList.contains('tf')) {
-                            bruhnt();
-                            r[0].hidden = false;
-                            r[2].hidden = false;
-                            r[6].hidden = false;
-                            yeornay.style.display = 'none';
-                        } else {
-                            bruh();
-                            yeornay.style.display = 'initial'
-                        }
-                    });
-                    r[2].cells[1].textContent = MTT(numbah[0] + numbah[2]);
-                    r[6].cells[1].textContent = MTT(numbah[0] + numbah[2] + numbah[6]);
-                    totalMillis = numbah[0] + numbah[2] + numbah[6];
+                cleanfuckingarray[5] = MTT(numbah[0] + numbah[1] + numbah[5]);
+                cleanfuckingarray[6] = MTT(numbah[0] + numbah[1] + numbah[5] + numbah[6]);
+                cleanfuckingarray[7] = MTT(numbah[0] + numbah[1] + numbah[5] + numbah[6] + numbah[7]);
+                cleanfuckingarray[8] = MTT(numbah[0] + numbah[1] + numbah[5] + numbah[6] + numbah[7] + numbah[8]);
+                totalMillis = numbah[0] + numbah[1] + numbah[5] + numbah[6] + numbah[7] + numbah[8];
+            } else if (document.getElementById("afg").checked) {
+        
+            document.querySelectorAll(".timers label, .timers input, .timers br").forEach(function (yeornay) {
+        
+                if (!yeornay.classList.contains("afg")) {
+                    bruh(); 
+                    r[9].hidden = true;
+                    yeornay.style.display = 'none';
+                } else {
+                    yeornay.style.display = 'initial';
                 }
-                
-                document.getElementById('wow').innerHTML = "Live Segment: " + MTT(totalMillis);
-            
-                if (document.getElementById('tablething').checked){
-                    document.getElementById('tablemrbg').hidden = false; 
-                } else { document.getElementById('tablemrbg').hidden = true;  }
+            });
+                cleanfuckingarray[2] = MTT(numbah[0] + numbah[1] + numbah[2]);
+                cleanfuckingarray[3] = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3]);
+                cleanfuckingarray[4] = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4]);
+                cleanfuckingarray[5] = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5]);
+                cleanfuckingarray[6] = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6]);
+                cleanfuckingarray[7] = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6] + numbah[7]);
+                cleanfuckingarray[8] = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6] + numbah[7] + numbah[8]);
+                cleanfuckingarray[10] = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6] + numbah[7] + numbah[8] + numbah[10]);
+                totalMillis = numbah.reduce((ac, cur) => ac + cur, 0) - TTM(rb4m);
+            } else if (document.getElementById("es").checked) {
+                document.querySelectorAll(".timers label, .timers input, .timers br").forEach(function (yeornay) {
+                    if (!yeornay.classList.contains('es')) {
+                        bruh();
+                        yeornay.style.display = 'none';
+                    } else {
+                        bruh();
+                        yeornay.style.display = 'initial';
+                    }
+                });
+
+                cleanfuckingarray[2] = MTT(numbah[0] + numbah[1] + numbah[2]);
+                cleanfuckingarray[3] = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3]);
+                cleanfuckingarray[4] = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4]);
+                cleanfuckingarray[5] = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5]);
+                cleanfuckingarray[6] = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6]);
+                cleanfuckingarray[7] = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6] + numbah[7]);
+                cleanfuckingarray[8] = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6] + numbah[7] + numbah[8]);
+                cleanfuckingarray[9] = MTT(numbah[0] + numbah[1] + numbah[2] + numbah[3] + numbah[4] + numbah[5] + numbah[6] + numbah[7] + numbah[8] + numbah[9]);
+                totalMillis = numbah.reduce((ac, cur) => ac + cur, 0);
+                r[10].cells[1].textContent = MTT(totalMillis);
+            } else if (document.getElementById("rb13").checked) {
+                document.querySelectorAll(".timers label, .timers input, .timers br").forEach(function (yeornay) {
+                    if (!yeornay.classList.contains('rb13')) {
+                        bruhnt();
+                        r[0].hidden = false;
+                        r[1].hidden = false;
+                        r[5].hidden = false;
+                        yeornay.style.display = 'none';
+                    } else {
+                        bruh();
+                        yeornay.style.display = 'initial'
+                    }
+                });
+                r[5].cells[1].textContent = MTT(numbah[0] + numbah[1] + numbah[5]);
+                totalMillis = numbah[0] + numbah[1] + numbah[5];
+            } else if (document.getElementById("rb4").checked) {
+                document.querySelectorAll(".timers label, .timers input, .timers br").forEach(function (yeornay) {
+                    if (!yeornay.classList.contains('rb4')) {
+                        bruhnt();
+                        r[6].hidden = false;
+                        r[7].hidden = false;
+                        r[8].hidden = false;
+                        yeornay.style.display = 'none';
+                    } else {
+                        bruh();
+                        yeornay.style.display = 'initial'
+                    }
+                });
+                r[6].cells[1].textContent = MTT(numbah[6]);
+                r[7].cells[1].textContent = MTT(numbah[6] + numbah[7]);
+                r[8].cells[1].textContent = MTT(numbah[6] + numbah[7] + numbah[8]);
+                totalMillis = numbah[6] + numbah[7] + numbah[8];
+            } else if (document.getElementById("rabb").checked) {
+                document.querySelectorAll(".timers label, .timers input, .timers br").forEach(function (yeornay) {
+                    if (!yeornay.classList.contains('rabb')) {
+                        bruhnt();
+                        r[2].hidden = false;
+                        r[3].hidden = false;
+                        r[4].hidden = false;
+                        yeornay.style.display = 'none';
+                    } else {
+                        bruh();
+                        yeornay.style.display = 'initial'
+                    }
+                });
+                r[2].cells[1].textContent = MTT(numbah[2]);
+                r[3].cells[1].textContent = MTT(numbah[2] + numbah[3]);
+                r[4].cells[1].textContent = MTT(numbah[2] + numbah[3] + numbah[4]);
+                totalMillis = numbah[2] + numbah[3] + numbah[4];
+            } else if (document.getElementById("tf").checked) {
+                document.querySelectorAll(".timers label, .timers input, .timers br").forEach(function (yeornay) {
+                    if (!yeornay.classList.contains('tf')) {
+                        bruhnt();
+                        r[0].hidden = false;
+                        r[2].hidden = false;
+                        r[6].hidden = false;
+                        yeornay.style.display = 'none';
+                    } else {
+                        bruh();
+                        yeornay.style.display = 'initial'
+                    }
+                });
+                r[2].cells[1].textContent = MTT(numbah[0] + numbah[2]);
+                r[6].cells[1].textContent = MTT(numbah[0] + numbah[2] + numbah[6]);
+                totalMillis = numbah[0] + numbah[2] + numbah[6];
             }
             
-            document.addEventListener('click', function(event) {
-                loop();
-            });
-            function reset(){
-            let textInputs = document.querySelectorAll('input[type="text"]');
-            
-            textInputs.forEach(function(input) {
-                input.value = '';  // Define um novo valor para cada campo de texto
-            });
-            
+            document.getElementById('wow').innerHTML = 'Attempt Counter: ' + resetCount + ' · Live Segment: ' + MTT(totalMillis) + deltaquestionmark;
+        
+            if (document.getElementById('tablething').checked){
+                document.getElementById('tablemrbg').hidden = false; document.getElementById('hidethistooplease').hidden = false; 
+            } else { document.getElementById('tablemrbg').hidden = true; document.getElementById('hidethistooplease').hidden = true; }
+            if (document.getElementById('tableshort').checked){
+                r[0].cells[0].textContent = names[0];
+                r[1].cells[0].textContent = names[1];
+                r[2].cells[0].textContent = names[2];
+                r[3].cells[0].textContent = names[3];
+                r[4].cells[0].textContent = names[4];
+                r[5].cells[0].textContent = names[5];
+                r[6].cells[0].textContent = names[6];
+                r[7].cells[0].textContent = names[7];
+                r[8].cells[0].textContent = names[8];
+                r[9].cells[0].textContent = names[9];
+                r[10].cells[0].textContent = names[10];
+            } else {
+                r[0].cells[0].textContent = names[11];
+                r[1].cells[0].textContent = names[12];
+                r[2].cells[0].textContent = names[13];
+                r[3].cells[0].textContent = names[14];
+                r[4].cells[0].textContent = names[15];
+                r[5].cells[0].textContent = names[16];
+                r[6].cells[0].textContent = names[17];
+                r[7].cells[0].textContent = names[18];
+                r[8].cells[0].textContent = names[19];
+                r[9].cells[0].textContent = names[20];
+                r[10].cells[0].textContent = names[21];
             }
-        </script>
-    </head>
-    <body onLoad="loop()">
-        <h1>MRBG Timer</h1>
-        <div class="selectors" id="selectors">
-            <label for="fs" class="fs">Full Series</label>
-            <input type="radio" checked name="sel" value="fs" id="fs" class="fs">
-            <label for="afg" class="afg">All Flash Games</label>
-            <input type="radio" name="sel" value="afg" id="afg" class="afg">
-            <label for="es" class="es">Extended Series</label>
-            <input type="radio" name="sel" value="es" id="es" class="es">
-            <label for="rb13" class="rb13">Red Ball 1-3</label>
-            <input type="radio" name="sel" value="rb13" id="rb13" class="rb13">
-            <label for="rb4" class="rb4">Red Ball 4</label>
-            <input type="radio" name="sel" value="rb4" id="rb4" class="rb4">
-            <label for="rabb" class="rabb">Red and Blue Balls 1-3</label>
-            <input type="radio" name="sel" value="rabb" id="rabb" class="rabb">
-            <label for="tf" class="tf">Trifecta</label>
-            <input type="radio" name="sel" value="tf" id="tf" class="tf"><br>
-        </div>
-        <br>
-        <div class="timers">
-            <input type="text" id="rb1" name="rb1" class="rb1 rb13 fs es afg tf" placeholder="xx:xx.xxx"><label for="rb1" class="rb1 rb13 fs es afg tf">Red Ball 1</label><br class="rb1 rb13 fs es afg tf">
-            <input type="text" id="rb2" name="rb2" class="rb2 rb13 fs es afg" placeholder="xx:xx.xxx"><label for="rb2" class="rb2 rb13 fs es afg">Red Ball 2</label><br class="rb2 rb13 fs es afg">
-            <input type="text" id="rabb1" name="rabb1" class="rabb1 rabb es afg tf" placeholder="xx:xx.xxx"><label for="rabb1" class="rabb1 rabb es afg tf">Red and Blue Balls</label><br class="rabb1 rabb es afg tf">
-            <input type="text" id="rabb2" name="rabb2" class="rabb2 rabb es afg" placeholder="xx:xx.xxx"><label for="rabb2" class="rabb2 rabb es afg">Red and Blue Balls 2</label><br class="rabb2 rabb es afg">
-            <input type="text" id="rabb3" name="rabb3" class="rabb3 rabb es afg" placeholder="xx:xx.xxx"><label for="rabb3" class="rabb3 rabb es afg">Red and Blue Balls 3</label><br class="rabb3 rabb es afg">
-            <input type="text" id="rb3" name="rb3" class="rb3 rb13 fs es afg" placeholder="xx:xx.xxx"><label for="rb3" class="rb3 rb13 fs es afg">Red Ball 3</label><br class="rb3 rb13 fs es afg">
-            <input type="text" id="rb4v1" name="rb4v1" class="rb4v1 rb4 fs es afg tf" placeholder="xx:xx.xxx"><label for="rb4v1" class="rb4v1 rb4 fs es afg tf">Red Ball 4 Vol. 1</label><br class="rb4v1 rb4 fs es afg tf">
-            <input type="text" id="rb4v2" name="rb4v2" class="rb4v2 rb4 fs es afg" placeholder="xx:xx.xxx"><label for="rb4v2" class="rb4v2 rb4 fs es afg">Red Ball 4 Vol. 2</label><br class="rb4v2 rb4 fs es afg">
-            <input type="text" id="rb4v3" name="rb4v3" class="rb4v3 rb4 fs es afg" placeholder="xx:xx.xxx"><label for="rb4v3" class="rb4v3 rb4 fs es afg">Red Ball 4 Vol. 3</label><br class="rb4v3 rb4 fs es afg">
-            <input type="text" id="rb4m" name="rb4m" class="rb4m es" placeholder="xx:xx.xxx"><label for="rb4m" class="rb4m es">Red Ball 4 (Mobile)</label><br class="rb4m es">
-            <input type="text" id="rb5" name="rb5" class="rb5 es afg" placeholder="xx:xx.xxx"><label for="rb5" class="rb5 es afg">Red Ball 5</label><br class="rb5 es afg">
-        </div>
-        <small id="wow"></small><br><br>
-        <button id="reset" onclick="reset()">Reset</button>
-        <label for="tablething">Show table</label>
-        <input type="checkbox" name="tablething" id="tablething" checked><br><br>
-        <table id="tablemrbg">
-            <thead>
-                <tr>
-                    <th>Split Name<br></th>
-                    <th>Split Time<br></th>
-                    <th>Segment Time<br></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr id="r1">
-                    <td>
-                        <div>Red Ball</div>
-                    </td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="r2">
-                    <td>Red Ball 2<br></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="rab1">
-                    <td>
-                        <p>Red and Blue Balls<br></p>
-                    </td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="rab2">
-                    <td>Red and Blue Balls 2<br></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="rab3">
-                    <td>
-                        <p>Red and Blue Balls 3<br></p>
-                    </td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="r3">
-                    <td>Red Ball 3<br></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="r4v1">
-                    <td>Red Ball 4 Vol. 1<br></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="r4v2">
-                    <td>
-                        <p>Red Ball 4 Vol. 2<br></p>
-                    </td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="r4v3">
-                    <td>
-                        <p>Red Ball 4 Vol. 3<br></p>
-                    </td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="r4m">
-                    <td>
-                        <div>Red Ball 4 (Mobile)</div>
-                    </td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="r5">
-                    <td>Red Ball 5<br></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </body>
+            if (document.getElementById('tablecompare').checked){
+                document.getElementById('comparebutton').hidden = false;
+                document.getElementById('wow').colSpan = '4';
+                document.getElementById('tablemrbg').classList.remove('hideyhidey');
+                if (document.getElementById("fs").checked) {
+                    r[0].cells[3].textContent = MTT((numbah[0] - comparisonARRAYYEAH2[0]), true);
+                    r[1].cells[3].textContent = MTT((numbah[1] - comparisonARRAYYEAH2[1]), true);
+                    r[5].cells[3].textContent = MTT((numbah[5] - comparisonARRAYYEAH2[2]), true);
+                    r[6].cells[3].textContent = MTT((numbah[6] - comparisonARRAYYEAH2[3]), true);
+                    r[7].cells[3].textContent = MTT((numbah[7] - comparisonARRAYYEAH2[4]), true);
+                    r[8].cells[3].textContent = MTT((numbah[8] - comparisonARRAYYEAH2[5]), true);
+                    deltaquestionmark = ' · Live Delta: ' + MTT(((numbah[0] - comparisonARRAYYEAH2[0]) + (numbah[1] - comparisonARRAYYEAH2[1]) + (numbah[5] - comparisonARRAYYEAH2[2]) + (numbah[6] - comparisonARRAYYEAH2[3]) + (numbah[7] - comparisonARRAYYEAH2[4]) + (numbah[8] - comparisonARRAYYEAH2[5])), true)
+                }
+                else if (document.getElementById("afg").checked) {
+                    r[0].cells[3].textContent = MTT((numbah[0] - comparisonARRAYYEAH2[0]), true);
+                    r[1].cells[3].textContent = MTT((numbah[1] - comparisonARRAYYEAH2[1]), true);
+                    r[2].cells[3].textContent = MTT((numbah[2] - comparisonARRAYYEAH2[2]), true);
+                    r[3].cells[3].textContent = MTT((numbah[3] - comparisonARRAYYEAH2[3]), true);
+                    r[4].cells[3].textContent = MTT((numbah[4] - comparisonARRAYYEAH2[4]), true);
+                    r[5].cells[3].textContent = MTT((numbah[5] - comparisonARRAYYEAH2[5]), true);
+                    r[6].cells[3].textContent = MTT((numbah[6] - comparisonARRAYYEAH2[6]), true);
+                    r[7].cells[3].textContent = MTT((numbah[7] - comparisonARRAYYEAH2[7]), true);
+                    r[8].cells[3].textContent = MTT((numbah[8] - comparisonARRAYYEAH2[8]), true);
+                    r[10].cells[3].textContent = MTT((numbah[10] - comparisonARRAYYEAH2[9]), true);
+                    deltaquestionmark = ' · Live Delta: ' + MTT(((numbah[0] - comparisonARRAYYEAH2[0]) + (numbah[1] - comparisonARRAYYEAH2[1]) + (numbah[2] - comparisonARRAYYEAH2[2]) + (numbah[3] - comparisonARRAYYEAH2[3]) + (numbah[4] - comparisonARRAYYEAH2[4]) + (numbah[5] - comparisonARRAYYEAH2[5]) + (numbah[6] - comparisonARRAYYEAH2[6]) + (numbah[7] - comparisonARRAYYEAH2[7]) + (numbah[8] - comparisonARRAYYEAH2[8]) + (numbah[10] - comparisonARRAYYEAH2[9])), true)
+                } 
+                else if (document.getElementById("es").checked) {
+                    r[0].cells[3].textContent = MTT((numbah[0] - comparisonARRAYYEAH2[0]), true);
+                    r[1].cells[3].textContent = MTT((numbah[1] - comparisonARRAYYEAH2[1]), true);
+                    r[2].cells[3].textContent = MTT((numbah[2] - comparisonARRAYYEAH2[2]), true);
+                    r[3].cells[3].textContent = MTT((numbah[3] - comparisonARRAYYEAH2[3]), true);
+                    r[4].cells[3].textContent = MTT((numbah[4] - comparisonARRAYYEAH2[4]), true);
+                    r[5].cells[3].textContent = MTT((numbah[5] - comparisonARRAYYEAH2[5]), true);
+                    r[6].cells[3].textContent = MTT((numbah[6] - comparisonARRAYYEAH2[6]), true);
+                    r[7].cells[3].textContent = MTT((numbah[7] - comparisonARRAYYEAH2[7]), true);
+                    r[8].cells[3].textContent = MTT((numbah[8] - comparisonARRAYYEAH2[8]), true);
+                    r[9].cells[3].textContent = MTT((numbah[9] - comparisonARRAYYEAH2[9]), true);
+                    r[10].cells[3].textContent = MTT((numbah[10] - comparisonARRAYYEAH2[10]), true);
+                    deltaquestionmark = ' · Live Delta: ' + MTT(((numbah[0] - comparisonARRAYYEAH2[0]) + (numbah[1] - comparisonARRAYYEAH2[1]) + (numbah[2] - comparisonARRAYYEAH2[2]) + (numbah[3] - comparisonARRAYYEAH2[3]) + (numbah[4] - comparisonARRAYYEAH2[4]) + (numbah[5] - comparisonARRAYYEAH2[5]) + (numbah[6] - comparisonARRAYYEAH2[6]) + (numbah[7] - comparisonARRAYYEAH2[7]) + (numbah[8] - comparisonARRAYYEAH2[8]) + (numbah[9] - comparisonARRAYYEAH2[9]) + (numbah[10] - comparisonARRAYYEAH2[10])), true)
+                } 
+                else if (document.getElementById("rb13").checked) {
+                    r[0].cells[3].textContent = MTT((numbah[0] - comparisonARRAYYEAH2[0]), true);
+                    r[1].cells[3].textContent = MTT((numbah[1] - comparisonARRAYYEAH2[1]), true);
+                    r[5].cells[3].textContent = MTT((numbah[5] - comparisonARRAYYEAH2[2]), true);
+                    deltaquestionmark = ' · Live Delta: ' + MTT(((numbah[0] - comparisonARRAYYEAH2[0]) + (numbah[1] - comparisonARRAYYEAH2[1]) + (numbah[5] - comparisonARRAYYEAH2[2])), true)
+                } 
+                else if (document.getElementById("rb4").checked) {
+                    r[6].cells[3].textContent = MTT((numbah[6] - comparisonARRAYYEAH2[0]), true);
+                    r[7].cells[3].textContent = MTT((numbah[7] - comparisonARRAYYEAH2[1]), true);
+                    r[8].cells[3].textContent = MTT((numbah[8] - comparisonARRAYYEAH2[2]), true);
+                    deltaquestionmark = ' · Live Delta: ' + MTT(((numbah[6] - comparisonARRAYYEAH2[0]) + (numbah[7] - comparisonARRAYYEAH2[1]) + (numbah[8] - comparisonARRAYYEAH2[2])), true)
+                } 
+                else if (document.getElementById("rabb").checked) {
+                    r[2].cells[3].textContent = MTT((numbah[2] - comparisonARRAYYEAH2[0]), true);
+                    r[3].cells[3].textContent = MTT((numbah[3] - comparisonARRAYYEAH2[1]), true);
+                    r[4].cells[3].textContent = MTT((numbah[4] - comparisonARRAYYEAH2[2]), true);
+                    deltaquestionmark = ' · Live Delta: ' + MTT(((numbah[2] - comparisonARRAYYEAH2[0]) + (numbah[3] - comparisonARRAYYEAH2[1]) + (numbah[4] - comparisonARRAYYEAH2[2])), true)
+                } 
+                else if (document.getElementById("tf").checked) {
+                    r[0].cells[3].textContent = MTT((numbah[0] - comparisonARRAYYEAH2[0]), true);
+                    r[2].cells[3].textContent = MTT((numbah[2] - comparisonARRAYYEAH2[1]), true);
+                    r[6].cells[3].textContent = MTT((numbah[6] - comparisonARRAYYEAH2[2]), true);
+                    deltaquestionmark = ' · Live Delta: ' + MTT(((numbah[0] - comparisonARRAYYEAH2[0]) + (numbah[2] - comparisonARRAYYEAH2[1]) + (numbah[6] - comparisonARRAYYEAH2[2])), true)
+                } 
+        
+                } else {
+                    deltaquestionmark = '';
+                    document.getElementById('comparebutton').hidden = true;
+                    document.getElementById('wow').colSpan = '3';
+                    document.getElementById('tablemrbg').classList.add('hideyhidey');
+                }
+
+        }
+        
+        document.addEventListener('click', function(event) {
+            loop();
+        });
+        
+        function reset(){
+        
+        resetCount = resetCount + 1;
+        let textInputs = document.querySelectorAll('input[type="text"]');
+        
+        textInputs.forEach(function(input) {
+            input.value = '';
+        });
+        
+        }
+        
+        function compare(){
+            let comparisonThing = prompt("Input the comparison times on the prompt below.\nRemind to:\n- Make it the same format as the time inputs (XX:XX.XXX)\n- Split times using a | symbol. Don't use spaces tho.\n- Please make it the same amount of splits as the category you selected. Otherwise it will not work.");
+        
+            thefuckingarray = comparisonThing.split('|');
+        
+            comparisonARRAYYEAH1 = thefuckingarray.map(item => MTT(TTM(item)));
+            comparisonARRAYYEAH2 = thefuckingarray.map(item => TTM(item));
+        
+        }
+    </script>
+</head>
+
+<body onLoad="loop()">
+    <h1>MRBG Timer</h1>
+    <div class="selectors" id="selectors">
+        <label for="fs" class="fs">Full Series</label>
+        <input type="radio" checked name="sel" value="fs" id="fs" class="fs">
+        <label for="afg" class="afg">All Flash Games</label>
+        <input type="radio" name="sel" value="afg" id="afg" class="afg">
+        <label for="es" class="es">Extended Series</label>
+        <input type="radio" name="sel" value="es" id="es" class="es">
+        <label for="rb13" class="rb13">Red Ball 1-3</label>
+        <input type="radio" name="sel" value="rb13" id="rb13" class="rb13">
+        <label for="rb4" class="rb4">Red Ball 4</label>
+        <input type="radio" name="sel" value="rb4" id="rb4" class="rb4">
+        <label for="rabb" class="rabb">Red and Blue Balls 1-3</label>
+        <input type="radio" name="sel" value="rabb" id="rabb" class="rabb">
+        <label for="tf" class="tf">Trifecta</label>
+        <input type="radio" name="sel" value="tf" id="tf" class="tf"><br>
+    </div>
+    <br>
+    <div class="timers">
+        <input type="text" id="rb1" name="rb1" class="rb1 rb13 fs es afg tf" placeholder="xx:xx.xxx"><label for="rb1" class="rb1 rb13 fs es afg tf">Red Ball 1</label><br class="rb1 rb13 fs es afg tf">
+        <input type="text" id="rb2" name="rb2" class="rb2 rb13 fs es afg" placeholder="xx:xx.xxx"><label for="rb2" class="rb2 rb13 fs es afg">Red Ball 2</label><br class="rb2 rb13 fs es afg">
+        <input type="text" id="rabb1" name="rabb1" class="rabb1 rabb es afg tf" placeholder="xx:xx.xxx"><label for="rabb1" class="rabb1 rabb es afg tf">Red and Blue Balls</label><br class="rabb1 rabb es afg tf">
+        <input type="text" id="rabb2" name="rabb2" class="rabb2 rabb es afg" placeholder="xx:xx.xxx"><label for="rabb2" class="rabb2 rabb es afg">Red and Blue Balls 2</label><br class="rabb2 rabb es afg">
+        <input type="text" id="rabb3" name="rabb3" class="rabb3 rabb es afg" placeholder="xx:xx.xxx"><label for="rabb3" class="rabb3 rabb es afg">Red and Blue Balls 3</label><br class="rabb3 rabb es afg">
+        <input type="text" id="rb3" name="rb3" class="rb3 rb13 fs es afg" placeholder="xx:xx.xxx"><label for="rb3" class="rb3 rb13 fs es afg">Red Ball 3</label><br class="rb3 rb13 fs es afg">
+        <input type="text" id="rb4v1" name="rb4v1" class="rb4v1 rb4 fs es afg tf" placeholder="xx:xx.xxx"><label for="rb4v1" class="rb4v1 rb4 fs es afg tf">Red Ball 4 Vol. 1</label><br class="rb4v1 rb4 fs es afg tf">
+        <input type="text" id="rb4v2" name="rb4v2" class="rb4v2 rb4 fs es afg" placeholder="xx:xx.xxx"><label for="rb4v2" class="rb4v2 rb4 fs es afg">Red Ball 4 Vol. 2</label><br class="rb4v2 rb4 fs es afg">
+        <input type="text" id="rb4v3" name="rb4v3" class="rb4v3 rb4 fs es afg" placeholder="xx:xx.xxx"><label for="rb4v3" class="rb4v3 rb4 fs es afg">Red Ball 4 Vol. 3</label><br class="rb4v3 rb4 fs es afg">
+        <input type="text" id="rb4m" name="rb4m" class="rb4m es" placeholder="xx:xx.xxx"><label for="rb4m" class="rb4m es">Red Ball 4 (Mobile)</label><br class="rb4m es">
+        <input type="text" id="rb5" name="rb5" class="rb5 es afg" placeholder="xx:xx.xxx"><label for="rb5" class="rb5 es afg">Red Ball 5</label><br class="rb5 es afg">
+    </div><br><br>
+    <button id="reset" onclick="reset()">Reset</button>
+    <label for="tablething">Show table</label>
+    <input type="checkbox" name="tablething" id="tablething" checked>
+    <span id="hidethistooplease">
+        <label for="tableshort">Shorten Names</label>
+        <input type="checkbox" name="tableshort" id="tableshort">
+        <label for="tablecompare">Compare Against</label>
+        <input type="checkbox" name="tablecompare" id="tablecompare">
+        <button id="comparebutton" onclick="compare()">Change Comparison Times</button>
+    </span><br><br>
+    <table id="tablemrbg">
+        <thead>
+            <tr>
+                <th colspan='3' style='text-align: center' id='wow'>Attempt Counter: 0 · Live Segment: 00:00.000</th>
+            </tr>
+            <tr>
+                <th>Split Name</th>
+                <th>Split Time</th>
+                <th>Segment Time</th>
+                <th class="CC">Current Comparison</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="r1">
+                <td>Red Ball</td>
+                <td></td>
+                <td></td>
+                <td class="CC"></td>
+            </tr>
+            <tr id="r2">
+                <td>Red Ball 2<br></td>
+                <td></td>
+                <td></td>
+                <td class="CC"></td>
+            </tr>
+            <tr id="rab1">
+                <td>Red and Blue Balls</td>
+                <td></td>
+                <td></td>
+                <td class="CC"></td>
+            </tr>
+            <tr id="rab2">
+                <td>Red and Blue Balls 2</td>
+                <td></td>
+                <td></td>
+                <td class="CC"></td>
+            </tr>
+            <tr id="rab3">
+                <td>Red and Blue Balls 3</td>
+                <td></td>
+                <td></td>
+                <td class="CC"></td>
+            </tr>
+            <tr id="r3">
+                <td>Red Ball 3</td>
+                <td></td>
+                <td></td>
+                <td class="CC"></td>
+            </tr>
+            <tr id="r4v1">
+                <td>Red Ball 4 Vol. 1</td>
+                <td></td>
+                <td></td>
+                <td class="CC"></td>
+            </tr>
+            <tr id="r4v2">
+                <td>Red Ball 4 Vol. 2</td>
+                <td></td>
+                <td></td>
+                <td class="CC"></td>
+            </tr>
+            <tr id="r4v3">
+                <td>Red Ball 4 Vol. 3</td>
+                <td></td>
+                <td></td>
+                <td class="CC"></td>
+            </tr>
+            <tr id="r4m">
+                <td>Red Ball 4 (Mobile)</td>
+                <td></td>
+                <td></td>
+                <td class="CC"></td>
+            </tr>
+            <tr id="r5">
+                <td>Red Ball 5</td>
+                <td></td>
+                <td></td>
+                <td class="CC"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
 </html>
